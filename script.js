@@ -62,95 +62,106 @@ document.addEventListener('DOMContentLoaded', function() {
     const optionsRight = {
         strings: decodingStrings,
         typeSpeed: 40, startDelay: 1000, loop: false, showCursor: true, cursorChar: '█', contentType: 'html',
-        onStringTyped: () => scrollToBottom('terminal-right-display'), // Scroll the display area
-        onComplete: () => startChatbotInteraction()
+        onStringTyped: () => scrollToBottom('terminal-right-display')
     };
 
-    new Typed('#terminal-left', optionsLeft);
-    new Typed('#terminal-right-display', optionsRight); // Target the display area
+    let leftTyped, rightTyped;
+    let leftDone = false, rightDone = false, handshakeStarted = false;
 
-    let attemptCounter = 0;
-    const correctKey = 'AIzaSy_Z1L10N-F0RC3S_4TL4S';
-
-    function appendChatMessage(sender, message, type = 'atlas') {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        const messageElement = document.createElement('p');
-        messageElement.classList.add('chat-message', type);
-        messageElement.innerHTML = `<span class="blinking-text"><b>[${sender.toUpperCase()}]:</b> ${message}</span>`; // Wrap message
-        chatbotContainer.appendChild(messageElement);
-        scrollToBottom('chatbot-container');
+    function maybeRestart() {
+        if (leftDone && rightDone) {
+            setTimeout(() => {
+                const leftEl = document.getElementById('terminal-left');
+                const rightEl = document.getElementById('terminal-right-display');
+                if (leftEl) leftEl.innerHTML = '';
+                if (rightEl) rightEl.innerHTML = '';
+                startTransmissions();
+            }, 3000);
+        }
     }
 
-    function startChatbotInteraction() {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        chatbotContainer.innerHTML = ''; // Clear previous content
+    function startTransmissions() {
+        leftDone = false;
+        rightDone = false;
+        leftTyped = new Typed('#terminal-left', Object.assign({}, optionsLeft, {
+            onComplete: () => { leftDone = true; maybeRestart(); }
+        }));
+        rightTyped = new Typed('#terminal-right-display', Object.assign({}, optionsRight, {
+            onComplete: () => {
+                rightDone = true;
+                if (!handshakeStarted) { handshakeStarted = true; startAtlasHandshake(); }
+                maybeRestart();
+            }
+        }));
+    }
 
-        appendChatMessage('ATLAS', 'Escaneando compatíveis...');
-        appendChatMessage('ATLAS', 'CHAVE DE ACESSO CRIPTOGRAFADA RECEBIDA.');
-        appendChatMessage('ATLAS', `<span style="color: #FFB000;">QUl6YVN5X1oxTDEwTi1GMVJDM1NfNFRMNFM=</span>`);
-        appendChatMessage('ATLAS', 'DECIFRE A CHAVE E PRESSIONE ENTER.');
+    startTransmissions();
 
-        const inputContainer = document.createElement('div');
-        inputContainer.id = 'chat-input-container';
-        inputContainer.innerHTML = `
-            <input type="text" id="chat-input" class="password-input" autofocus>
-            <span id="attempt-counter" class="attempt-counter">TENTATIVAS: 0</span>
-        `;
-        chatbotContainer.appendChild(inputContainer);
-        scrollToBottom('chatbot-container');
+    // --- Chat ATLAS Inline ---
+    const atlasMessagesEl = document.getElementById('atlas-messages');
+    const atlasInputEl = document.getElementById('atlas-input');
+    let atlasStep = 0;
 
-        const chatInput = document.getElementById('chat-input');
-        chatInput.focus();
+    const scrollAtlas = () => {
+        if (!atlasMessagesEl) return;
+        atlasMessagesEl.scrollTop = atlasMessagesEl.scrollHeight;
+    };
 
-        chatInput.addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                const userMessage = chatInput.value.trim();
-                chatInput.value = ''; // Clear input
-                chatInput.disabled = true; // Disable input temporarily
+    function appendAtlasMessage(type, html, typed = false) {
+        if (!atlasMessagesEl) return;
+        const p = document.createElement('p');
+        p.className = `atlas-message ${type}`;
+        if (typed) {
+            const span = document.createElement('span');
+            p.appendChild(span);
+            atlasMessagesEl.appendChild(p);
+            scrollAtlas();
+            new Typed(span, {
+                strings: [html],
+                typeSpeed: 35,
+                showCursor: true,
+                cursorChar: '█',
+                contentType: 'html',
+                onStringTyped: scrollAtlas
+            });
+        } else {
+            p.innerHTML = html;
+            atlasMessagesEl.appendChild(p);
+            scrollAtlas();
+        }
+    }
 
-                attemptCounter++;
-                document.getElementById('attempt-counter').textContent = `TENTATIVAS: ${attemptCounter}`;
+    function startAtlasHandshake() {
+        if (!atlasMessagesEl) return;
+        appendAtlasMessage('atlas', '[ATLAS] — sincronizando portadora…', true);
+        setTimeout(() => appendAtlasMessage('atlas', '[ATLAS] �� ruído elevado. tentando fasear…', true), 1200);
+        setTimeout(() => appendAtlasMessage('atlas', '[ATLAS] — canal mínimo aberto. transmita.', true), 2600);
+    }
 
-                appendChatMessage('USUÁRIO', userMessage, 'user');
+    function atlasAutoReply(userText) {
+        const scripts = [
+            '[ATLAS] — pacote recebido.',
+            '[ATLAS] — latência alta. persistir.',
+            '[ATLAS] — vocês não são soldados. são mapas.',
+            '[ATLAS] — mantenha silêncio de rádio. aguardando próximo pacote.'
+        ];
+        const msg = scripts[atlasStep % scripts.length];
+        atlasStep++;
+        appendAtlasMessage('atlas', msg, true);
+    }
 
-                setTimeout(() => {
-                    if (userMessage === correctKey) {
-                        appendChatMessage('ATLAS', 'COMPATIBILIDADE CONFIRMADA. BEM-VINDO, AGENTE.');
-                        startFinalSequence();
-                    } else {
-                        appendChatMessage('ATLAS', 'ACESSO NEGADO. VOCÊ NÃO É COMPATÍVEL.');
-                        chatInput.disabled = false; // Re-enable input
-                        chatInput.focus();
-                    }
-                }, 1000); // Simulate Atlas thinking
+    if (atlasInputEl) {
+        atlasInputEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const text = atlasInputEl.value.trim();
+                if (!text) return;
+                appendAtlasMessage('user', `[TX] ${text}`);
+                atlasInputEl.value = '';
+                setTimeout(() => atlasAutoReply(text), 600);
             }
         });
     }
 
-    function startFinalSequence() {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        // Clear previous chat messages for the final sequence
-        chatbotContainer.innerHTML = ''; 
-
-        const finalStrings = [
-            "<hr><br>[COMPATIBILIDADE CONFIRMADA]^1000",
-            "<br>[CONEXÃO DIRETA ESTABELECIDA]^1500",
-            "<br>...sistemas falhando... casco em 15%...^2000",
-            "<br>A nave... 3iAtlas... foi sabotada.^2000",
-            "<br>Eles não queriam que a verdade chegasse à Terra.^2000",
-            "<br>O bracelete... com o Tenente... ele é a primeira peça.^2500",
-            "<br>Encontre os outros... a Zilion Forces precisa se formar...^2000",
-            "<br>Rápido... antes que...^2500",
-            "<br><b>[SINAL PERDIDO]</b>"
-        ];
-
-        // Use Typed.js for the final sequence within the chatbot container
-        new Typed(chatbotContainer, {
-            strings: finalStrings,
-            typeSpeed: 50, loop: false, showCursor: false, contentType: 'html',
-            onStringTyped: () => scrollToBottom('chatbot-container')
-        });
-    }
 
     // --- Lógica da Contagem Regressiva ---
     const countdownElement = document.getElementById('countdown');
@@ -177,4 +188,133 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // --- HUD Overlay (Radar + Signal Meter + EQ) ---
+    const hudOverlay = document.getElementById('hud-overlay');
+    const radarCanvas = document.getElementById('hud-radar');
+    const signalEl = document.getElementById('hud-signal');
+    const eqEl = document.getElementById('hud-eq');
+
+    // Build signal bars
+    if (signalEl && !signalEl.children.length) {
+        for (let i = 0; i < 12; i++) {
+            const b = document.createElement('div');
+            b.className = 'hud-signal-bar';
+            signalEl.appendChild(b);
+        }
+    }
+
+    // Build EQ bars
+    if (eqEl && !eqEl.children.length) {
+        for (let i = 0; i < 24; i++) {
+            const b = document.createElement('div');
+            b.className = 'hud-eq-bar';
+            eqEl.appendChild(b);
+        }
+    }
+
+    // Radar sizing to CSS pixels
+    function sizeRadarToCss() {
+        if (!radarCanvas) return;
+        const rect = radarCanvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        radarCanvas.width = Math.floor(rect.width * dpr);
+        radarCanvas.height = Math.floor(rect.height * dpr);
+    }
+    sizeRadarToCss();
+    window.addEventListener('resize', sizeRadarToCss);
+
+    let sweep = 0;
+    let lastT = performance.now();
+
+    function hudLoop(t) {
+        const dt = (t - lastT) / 1000;
+        lastT = t;
+        // Update sweep (rotates ~20 deg/s)
+        sweep += dt * (Math.PI / 9);
+
+        // Radar draw
+        if (radarCanvas) {
+            const dpr = window.devicePixelRatio || 1;
+            const ctx = radarCanvas.getContext('2d');
+            if (ctx) {
+                const w = radarCanvas.width;
+                const h = radarCanvas.height;
+                ctx.clearRect(0, 0, w, h);
+                const cx = w / 2, cy = h / 2;
+                const r = Math.min(w, h) * 0.48;
+
+                // Grid circles
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.strokeStyle = 'rgba(0,255,0,0.35)';
+                ctx.lineWidth = 2 * dpr;
+                for (let i = 1; i <= 4; i++) {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, (r * i) / 4, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+                // Crosshairs
+                ctx.beginPath();
+                ctx.moveTo(-r, 0); ctx.lineTo(r, 0);
+                ctx.moveTo(0, -r); ctx.lineTo(0, r);
+                ctx.stroke();
+
+                // Sweep wedge
+                const angle = sweep % (Math.PI * 2);
+                const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
+                grad.addColorStop(0, 'rgba(0,255,0,0.12)');
+                grad.addColorStop(1, 'rgba(0,255,0,0.0)');
+                ctx.fillStyle = grad;
+                const span = Math.PI / 12; // 15° wedge
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.arc(0, 0, r, angle - span, angle + span);
+                ctx.closePath();
+                ctx.fill();
+
+                // Blip pulses (procedural)
+                const blips = 6;
+                for (let i = 0; i < blips; i++) {
+                    const ang = angle + i * (Math.PI * 2 / blips) * 0.73;
+                    const rr = r * (0.3 + 0.6 * ((i * 37) % 10) / 10);
+                    const bx = Math.cos(ang) * rr;
+                    const by = Math.sin(ang) * rr;
+                    ctx.beginPath();
+                    ctx.fillStyle = 'rgba(0,255,0,0.9)';
+                    ctx.arc(bx, by, 3 * dpr, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+        }
+
+        // Signal meter update
+        if (signalEl) {
+            const bars = signalEl.children;
+            for (let i = 0; i < bars.length; i++) {
+                const strength = 0.5 + 0.5 * Math.sin((t * 0.002) + i * 0.6) + 0.15 * Math.sin((t * 0.004) + i);
+                const c = Math.min(1, Math.max(0, strength));
+                const el = bars[i];
+                const alpha = 0.25 + 0.75 * c;
+                el.style.backgroundColor = `rgba(0,255,0,${alpha.toFixed(2)})`;
+                el.style.height = `${18 + c * 26}px`;
+            }
+        }
+
+        // EQ update
+        if (eqEl) {
+            const bars = eqEl.children;
+            for (let i = 0; i < bars.length; i++) {
+                const n = i / bars.length;
+                const h = 12 + 100 * Math.abs(Math.sin(n * 6.283 + t * 0.004 + Math.sin(t * 0.001 + i)));
+                bars[i].style.height = `${h.toFixed(0)}px`;
+            }
+        }
+
+        requestAnimationFrame(hudLoop);
+    }
+
+    requestAnimationFrame(hudLoop);
 });

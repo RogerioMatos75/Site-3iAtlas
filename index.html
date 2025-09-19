@@ -13,10 +13,21 @@
     <div id="countdown"></div>
     <div class="main-container">
         <pre id="terminal-left" class="terminal"></pre>
-        <div id="scene-container"></div>
+        <div id="scene-container">
+            <div id="hud-overlay" class="hud-overlay">
+                <canvas id="hud-radar" class="hud-radar-canvas"></canvas>
+                <div id="hud-signal" class="hud-signal" aria-hidden="true"></div>
+                <div id="hud-eq" class="hud-eq" aria-hidden="true"></div>
+            </div>
+        </div>
                 <div id="right-column" class="terminal">
             <div id="terminal-right-display"></div>
-            <div id="chatbot-container"></div>
+            <div id="atlas-chat" class="atlas-chat-panel">
+                <div id="atlas-messages" class="atlas-messages"></div>
+                <div class="atlas-input-row">
+                    <input type="text" id="atlas-input" class="atlas-input">
+                </div>
+            </div>
         </div>
     </div>
 
