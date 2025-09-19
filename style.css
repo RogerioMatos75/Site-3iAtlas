@@ -1,0 +1,135 @@
+/* style.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #0f0; /* Cor do texto verde-fósforo */
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo base para as colunas de terminal */
+.terminal {
+    flex: 1.5;
+    position: relative; /* Para posicionamento absoluto de elementos internos */
+}
+
+/* Estilo específico para o terminal da esquerda */
+#terminal-left {
+    padding: 2em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+    line-height: 1.5;
+    overflow-y: auto;
+}
+
+/* Estilo para a coluna da direita (que contém display e chatbot) */
+#right-column {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(0, 255, 0, 0.4); /* Borda entre central e direita */
+}
+
+/* Estilo para a área de display de texto na coluna direita */
+#terminal-right-display {
+    flex-grow: 1; /* Ocupa todo o espaço disponível */
+    overflow-y: auto;
+    padding: 2em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+    line-height: 1.5;
+}
+
+/* Estilo para o container do chatbot na coluna direita */
+#chatbot-container {
+    flex-shrink: 0; /* Não permite que encolha */
+    height: 14em; /* Altura fixa para o chatbot */
+    padding: 1.5em 2em;
+    background-color: #050505; /* Fundo ligeiramente diferente */
+    border-top: 1px solid rgba(0, 255, 0, 0.4);
+    overflow-y: auto; /* Para rolagem do chat */
+    /* REMOVIDO: animation: blink 2s infinite; */
+}
+
+#scene-container {
+    flex: 2;
+    border-left: 1px solid rgba(0, 255, 0, 0.4);
+    border-right: 1px solid rgba(0, 255, 0, 0.4);
+    box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+/* O Typed.js por padrão cria um span com a classe .typed-cursor */
+.typed-cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; }
+}
+
+#countdown {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    color: #FFB000;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-shadow: 0 0 5px #FFB000, 0 0 10px #FFB000;
+    z-index: 10;
+}
+
+/* Estilos para o Prompt de Senha (agora dentro do chatbot-container) */
+#chatbot-container .password-input, #chatbot-container .password-button {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.4);
+    color: #0f0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    margin-top: 10px;
+    padding: 5px;
+    width: calc(100% - 12px); /* Ajusta largura */
+    box-sizing: border-box;
+}
+
+#chatbot-container .password-button {
+    cursor: pointer;
+    width: auto;
+    margin-left: 10px;
+}
+
+#chatbot-container .password-button:hover { background-color: rgba(0, 255, 0, 0.3); }
+
+#chatbot-container .feedback-message {
+    color: #ff0000;
+    margin-top: 10px;
+    height: 20px;
+    display: block; /* Para ocupar sua própria linha */
+}
+
+#chatbot-container .chat-message {
+    margin-bottom: 5px;
+}
+
+#chatbot-container .chat-message.user {
+    color: #00FFFF; /* Ciano para o usuário */
+}
+
+#chatbot-container .chat-message.atlas {
+    color: #0f0; /* Verde para o Atlas */
+}
+
+.blinking-text {
+    animation: blink 2s infinite;
+}
