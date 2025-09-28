@@ -377,40 +377,113 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileStatus = document.getElementById('pulse-file-status');
     const fileContent = document.getElementById('pulse-file-content');
 
-    function openPulseModal(folderId) {
-        const fileMap = {
-            'A': 'payload/manifesto_01.txt',
-            'B': 'payload/manifesto_02.txt',
-            'C': 'payload/manifesto_03.txt',
-            'D': 'payload/manifesto_04.txt'
-        };
-        const path = fileMap[folderId] || fileMap['A'];
-        fileStatus.textContent = 'Carregando arquivo…';
-        fileContent.textContent = '';
+    const folderData = [
+        { id: 'manifesto1', name: 'Manifesto 1', contentPath: 'payload/manifesto_01.txt', access: 'public', locked: false },
+        { id: 'manifesto2', name: 'Manifesto 2', contentPath: 'payload/manifesto_02.txt', access: 'public', locked: false },
+        { id: 'manifesto3', name: 'Manifesto 3', contentPath: 'payload/manifesto_03.txt', access: 'public', locked: false },
+        { id: 'manifesto4', name: 'Manifesto 4', contentPath: 'payload/manifesto_04.txt', access: 'public', locked: false },
+        { id: 'swan_fragment', name: 'Fragmento SWAN [Panamá]', contentPath: 'payload/swan_fragment.txt', access: 'public', locked: false },
+        { id: 'buga_sphere', name: 'Esfera de Buga', contentPath: 'payload/buga_sphere.txt', access: 'public', locked: false },
+        { id: 'zl01_intercept', name: 'Interceptação ZL-01', contentPath: 'payload/zl01_intercept.txt', access: 'compatible', locked: false },
+        { id: 'relap_core', name: 'RELAP – Núcleo Ancestral', contentPath: 'payload/relap_core.txt', access: 'locked', locked: false },
+        { id: 'taser_diary', name: 'Tenente_Taser – Diário de Campo', contentPath: 'payload/taser_diary.txt', access: 'time-released', locked: false },
+        { id: 'kryll_genome', name: 'Genoma Kryll – Expansão', contentPath: 'payload/kryll_genome.json', access: 'real-time', locked: false },
+        { id: 'logbook', name: 'Diário de Bordo', contentPath: 'payload/diario_de_bordo.json', access: 'public', locked: false, type: 'log' }
+    ];
 
+    function renderFolders() {
+        const container = document.getElementById('hud-pulse-folders');
+        if (!container) return;
+
+        container.innerHTML = ''; // Limpa pastas existentes
+
+        folderData.forEach(folder => {
+            // Temporariamente exibindo todas as pastas desbloqueadas
+            if (!folder.locked) {
+                const button = document.createElement('button');
+                button.className = 'hud-folder';
+                button.textContent = folder.name;
+                button.setAttribute('data-folder-id', folder.id);
+
+                container.appendChild(button);
+            }
+        });
+    }
+
+    renderFolders(); // Chama a função para desenhar as pastas iniciais
+
+    function openPulseModal(folderId) {
+        const folder = folderData.find(f => f.id === folderId);
+        if (!folder) return;
+
+        // --- Show Modal ---
+        fileStatus.textContent = 'Carregando arquivo…';
+        fileContent.innerHTML = ''; // Use innerHTML para poder criar elementos
         if (typeof modal.showModal === 'function') {
             modal.showModal();
         } else {
             modal.setAttribute('open', 'true');
         }
 
-        fetch(path).then(r => {
-            if (!r.ok) throw new Error('Arquivo indisponível neste ciclo.');
-            return r.text();
-        }).then(txt => {
-            fileStatus.textContent = `Arquivo: ${path}`;
-            fileContent.textContent = txt;
-        }).catch(err => {
-            fileStatus.textContent = err.message || 'Falha ao carregar arquivo.';
-            fileContent.textContent = '';
-        });
+        // --- Fetch and Render Content ---
+        fetch(folder.contentPath)
+            .then(r => {
+                if (!r.ok) throw new Error('Arquivo indisponível neste ciclo.');
+                // Checa o tipo de conteúdo para tratar de forma diferente
+                if (folder.type === 'log') {
+                    return r.json().then(data => ({ type: 'log', data }));
+                }
+                if (folder.contentPath.endsWith('.json')) {
+                    return r.json().then(data => ({ type: 'json', data }));
+                }
+                return r.text().then(data => ({ type: 'text', data }));
+            })
+            .then(payload => {
+                fileStatus.textContent = `Arquivo: ${folder.contentPath}`.replace('payload/', '');
+                renderModalContent(payload);
+            })
+            .catch(err => {
+                fileStatus.textContent = err.message || 'Falha ao carregar arquivo.';
+                fileContent.textContent = '';
+            });
+    }
+
+    function renderModalContent(payload) {
+        fileContent.innerHTML = ''; // Limpa o conteúdo anterior
+
+        if (payload.type === 'log') {
+            const logList = document.createElement('div');
+            logList.className = 'log-list';
+            // Inverte os dados para mostrar o mais recente primeiro
+            payload.data.slice().reverse().forEach(entry => {
+                const logEntryEl = document.createElement('button');
+                logEntryEl.className = 'log-entry';
+                logEntryEl.innerHTML = `<span class="log-date">${entry.date}</span><span class="log-title">${entry.title}</span>`;
+                logEntryEl.addEventListener('click', () => {
+                    fileContent.innerHTML = `
+                        <button class="log-back-button">&larr; Voltar ao Diário</button>
+                        <h4 class="log-content-title">${entry.title}</h4>
+                        <p class="log-content-date">${entry.date}</p>
+                        <div class="log-content-body">${entry.content.replace(/\n/g, '<br>')}</div>
+                    `;
+                    fileContent.querySelector('.log-back-button').addEventListener('click', () => renderModalContent(payload));
+                });
+                logList.appendChild(logEntryEl);
+            });
+            fileContent.appendChild(logList);
+        } else if (payload.type === 'json') {
+            fileContent.textContent = JSON.stringify(payload.data, null, 2);
+        } else { // type 'text'
+            fileContent.textContent = payload.data;
+        }
     }
 
     if (pulseFolders) {
         pulseFolders.addEventListener('click', (e) => {
-            const target = e.target;
-            if (target && target.classList.contains('hud-folder')) {
-                openPulseModal(target.getAttribute('data-folder'));
+            const target = e.target.closest('.hud-folder'); // Mais robusto
+            if (target) {
+                const folderId = target.getAttribute('data-folder-id');
+                openPulseModal(folderId);
             }
         });
     }
@@ -419,6 +492,22 @@ document.addEventListener('DOMContentLoaded', function() {
         modalClose.addEventListener('click', () => {
             if (typeof modal.close === 'function') modal.close();
             else modal.removeAttribute('open');
+        });
+    }
+
+    // --- Lógica do Interceptador de Sinais ---
+    const interceptorInput = document.getElementById('interceptor-input');
+    const interceptorButton = document.getElementById('interceptor-button');
+    const interceptorStatus = document.getElementById('interceptor-status');
+
+    if (interceptorButton) {
+        interceptorButton.addEventListener('click', () => {
+            const url = interceptorInput.value.trim();
+            if (!url) {
+                interceptorStatus.textContent = 'ERRO: URL não pode estar vazia.';
+                return;
+            }
+            interceptorStatus.textContent = `Sinal pronto para interceptação. Peça ao Gemini para interceptar: ${url}`;
         });
     }
 });

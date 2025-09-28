@@ -15,10 +15,7 @@
         <div id="terminal-left" class="terminal">
             <pre id="terminal-text-area" class="terminal-text"></pre>
             <div id="hud-pulse-folders" class="hud-pulse-folders">
-                <button class="hud-folder" data-folder="A" aria-label="Abrir pasta A">Manifesto 1</button>
-                <button class="hud-folder" data-folder="B" aria-label="Abrir pasta B">Manifesto 2</button>
-                <button class="hud-folder" data-folder="C" aria-label="Abrir pasta C">Manifesto 3</button>
-                <button class="hud-folder" data-folder="D" aria-label="Abrir pasta D">Manifesto 4</button>
+                <!-- As pastas serão renderizadas dinamicamente aqui pelo script.js -->
             </div>
         </div>
         <div id="scene-container">
@@ -36,6 +33,14 @@
                 <div class="atlas-input-row">
                     <input type="text" id="atlas-input" class="atlas-input">
                 </div>
+            </div>
+            <div id="interceptor-panel" class="interceptor-panel">
+                <h4 class="interceptor-title">INTERCEPTADOR DE SINAIS</h4>
+                <div class="interceptor-input-row">
+                    <input type="text" id="interceptor-input" class="interceptor-input" placeholder="Cole uma URL para interceptar...">
+                    <button id="interceptor-button" class="interceptor-button">Interceptar</button>
+                </div>
+                <div id="interceptor-status" class="interceptor-status"></div>
             </div>
         </div>
     </div>

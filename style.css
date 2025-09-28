@@ -294,3 +294,119 @@ html, body {
     max-height: 40vh;
     overflow: auto;
 }
+
+/* Logbook Modal Styles */
+.log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.log-entry {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 255, 0, 0.05);
+    border: 1px solid transparent;
+    color: #0f0;
+    padding: 10px 8px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.log-entry:hover {
+    border-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.log-date {
+    color: #FFB000; /* Amarelo/Laranja para destaque */
+    margin-right: 1em;
+}
+
+.log-title {
+    flex-grow: 1;
+}
+
+.log-back-button {
+    background: transparent;
+    border: 1px solid rgba(0,255,0,0.5);
+    color: #FFB000;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.log-content-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #FFB000;
+}
+
+.log-content-date {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.log-content-body {
+    white-space: pre-wrap; /* Mantém a formatação do texto */
+    line-height: 1.6;
+}
+
+/* Interceptor Panel Styles */
+.interceptor-panel {
+    flex-shrink: 0;
+    padding: 1.5em 2em;
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(0, 255, 0, 0.4);
+}
+
+.interceptor-title {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    color: #FFB000;
+    text-transform: uppercase;
+}
+
+.interceptor-input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.interceptor-input {
+    flex-grow: 1;
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.4);
+    color: #0f0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    padding: 5px;
+    min-width: 0; /* Fix for flexbox overflow */
+}
+
+.interceptor-button {
+    background-color: rgba(255, 176, 0, 0.8);
+    border: 1px solid #FFB000;
+    color: #000;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.2s ease;
+}
+
+.interceptor-button:hover {
+    background-color: #FFB000;
+}
+
+.interceptor-status {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #FFB000;
+    min-height: 1.2em;
+}
