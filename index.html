@@ -15,9 +15,10 @@
         <div id="terminal-left" class="terminal">
             <pre id="terminal-text-area" class="terminal-text"></pre>
             <div id="hud-pulse-folders" class="hud-pulse-folders">
-                <button class="hud-folder" data-folder="A" aria-label="Abrir pasta A">PASTA A</button>
-                <button class="hud-folder" data-folder="B" aria-label="Abrir pasta B">PASTA B</button>
-                <button class="hud-folder" data-folder="C" aria-label="Abrir pasta C">PASTA C</button>
+                <button class="hud-folder" data-folder="A" aria-label="Abrir pasta A">Manifesto 1</button>
+                <button class="hud-folder" data-folder="B" aria-label="Abrir pasta B">Manifesto 2</button>
+                <button class="hud-folder" data-folder="C" aria-label="Abrir pasta C">Manifesto 3</button>
+                <button class="hud-folder" data-folder="D" aria-label="Abrir pasta D">Manifesto 4</button>
             </div>
         </div>
         <div id="scene-container">
@@ -47,10 +48,8 @@
             </div>
             <div class="atlas-modal-body">
                 <p class="atlas-modal-instructions">
-                    Janela ativa do pulso de 17 minutos. Arquivos podem aparecer apenas durante esta janela.
-                    Para decodificação offline, utilize AES-256-CBC com PBKDF2:
+                    Arquivo de manifesto recuperado do pulso.
                 </p>
-                <pre class="atlas-modal-code">openssl enc -aes-256-cbc -d -salt -pbkdf2 -in arquivo.enc -out decodificado.bin -pass pass:ATLAS-31</pre>
                 <div id="pulse-file-status" class="atlas-modal-status"></div>
                 <pre id="pulse-file-content" class="atlas-modal-pre"></pre>
             </div>

@@ -379,9 +379,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openPulseModal(folderId) {
         const fileMap = {
-            'A': 'payload/atlas_pulse_01.enc',
-            'B': 'payload/atlas_pulse_02.enc',
-            'C': 'payload/atlas_pulse_03.enc'
+            'A': 'payload/manifesto_01.txt',
+            'B': 'payload/manifesto_02.txt',
+            'C': 'payload/manifesto_03.txt',
+            'D': 'payload/manifesto_04.txt'
         };
         const path = fileMap[folderId] || fileMap['A'];
         fileStatus.textContent = 'Carregando arquivo…';
