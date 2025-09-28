@@ -26,11 +26,19 @@ html, body {
 /* Estilo específico para o terminal da esquerda */
 #terminal-left {
     padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em; /* Espaço entre a área de texto e as pastas */
+}
+
+.terminal-text {
+    /* flex-grow: 1; --- REMOVED to adjust layout */
     white-space: pre-wrap;
     word-wrap: break-word;
     text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
     line-height: 1.5;
-    overflow-y: auto;
+    overflow-y: auto; /* Adiciona scroll apenas à área de texto */
+    min-height: 0; /* Previne problemas de overflow com flexbox */
 }
 
 /* Estilo para a coluna da direita (que contém display e chatbot) */
@@ -165,4 +173,124 @@ html, body {
 
 .blinking-text {
     animation: blink 2s infinite;
+}
+
+/* HUD Alerts */
+.hud-alerts {
+    position: absolute;
+    top: 1em;
+    left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 40%;
+    pointer-events: none;
+    z-index: 6;
+}
+.hud-alert {
+    background-color: rgba(0, 32, 0, 0.7);
+    border: 1px solid rgba(0,255,0,0.5);
+    color: #0f0;
+    padding: 8px 12px;
+    font-weight: 700;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+    box-shadow: 0 0 12px rgba(0,255,0,0.5);
+    border-radius: 4px;
+    transition: opacity .4s ease, transform .4s ease;
+}
+.hud-alert.fade-out {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+/* ASCII block class replacing inline styles */
+.atlas-ascii-block {
+    font-size: 0.8em;
+    line-height: 1.0;
+}
+
+/* Pulse folders (Visible in left column) */
+.hud-pulse-folders {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0; /* Impede que as pastas encolham */
+    flex-grow: 1; /* Faz este container ocupar o espaço restante */
+    justify-content: center; /* Centraliza as pastas verticalmente */
+    align-items: flex-start; /* Impede as pastas de esticarem horizontalmente */
+}
+
+/* This rule is no longer needed as the folders are always visible */
+/* .hud-pulse-folders.active { display: flex; } */
+.hud-folder {
+    background-color: rgba(0, 32, 0, 0.7);
+    border: 1px solid rgba(0,255,0,0.5);
+    color: #0f0;
+    padding: 8px 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    /* Removed text-shadow and box-shadow for a cleaner look */
+}
+
+.hud-folder::before {
+    content: '📁';
+    margin-right: 0.75em;
+    font-size: 1.1em;
+}
+.hud-pulse-folders.pulse-active .hud-folder { animation: blink 1.2s infinite; }
+
+/* Modal */
+.atlas-modal {
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+.atlas-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+.atlas-modal-content {
+    background-color: #050505;
+    border: 1px solid rgba(0,255,0,0.5);
+    color: #0f0;
+    min-width: 320px;
+    max-width: 720px;
+    margin: 0;
+    box-shadow: 0 0 20px rgba(0,255,0,0.5);
+}
+.atlas-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(0,255,0,0.4);
+}
+.atlas-modal-close {
+    background: transparent;
+    border: 1px solid rgba(0,255,0,0.5);
+    color: #0f0;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+.atlas-modal-body { padding: 12px 14px; }
+.atlas-modal-instructions { margin: 0 0 8px 0; }
+.atlas-modal-code {
+    background-color: rgba(0, 32, 0, 0.7);
+    border: 1px solid rgba(0,255,0,0.4);
+    padding: 8px;
+    overflow-x: auto;
+}
+.atlas-modal-status { margin: 10px 0; color: #FFB000; }
+.atlas-modal-pre {
+    background-color: rgba(0, 32, 0, 0.7);
+    border: 1px solid rgba(0,255,0,0.4);
+    padding: 8px;
+    white-space: pre-wrap;
+    max-height: 40vh;
+    overflow: auto;
 }
