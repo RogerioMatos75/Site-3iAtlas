@@ -510,4 +510,32 @@ document.addEventListener('DOMContentLoaded', function() {
             interceptorStatus.textContent = `Sinal pronto para interceptação. Peça ao Gemini para interceptar: ${url}`;
         });
     }
+
+    // --- Lógica do Modal do Terminal ---
+    const openTerminalBtn = document.getElementById('open-terminal-btn');
+    const closeTerminalBtn = document.getElementById('close-terminal-btn');
+    const terminalModal = document.getElementById('terminal-modal-container');
+
+    if (openTerminalBtn && terminalModal) {
+        openTerminalBtn.addEventListener('click', () => {
+            terminalModal.classList.remove('hidden');
+        });
+    }
+
+    if (closeTerminalBtn && terminalModal) {
+        closeTerminalBtn.addEventListener('click', () => {
+            terminalModal.classList.add('hidden');
+        });
+    }
+
+    // Opcional: Fechar o modal ao clicar fora da área de conteúdo
+    if (terminalModal) {
+        terminalModal.addEventListener('click', (event) => {
+            // event.target é o elemento que foi clicado. 
+            // Se for o próprio container do modal (o fundo escuro), fecha.
+            if (event.target === terminalModal) {
+                terminalModal.classList.add('hidden');
+            }
+        });
+    }
 });

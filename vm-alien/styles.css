@@ -1,0 +1,145 @@
+/* ================================================= */
+/* ESTILIZAÇÃO DO CORPO E BACKGROUND (EFEITO CRT/SCIFI) */
+/* ================================================= */
+body {
+    background-color: #000; /* Fundo preto total */
+    color: #00ff00; /* Texto verde néon primário */
+    font-family: 'Consolas', 'Monaco', monospace; /* Fonte monoespaçada para terminal */
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    /* Efeito de Scanline (CRT/TV Antiga) */
+    background-image: linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+    background-size: 100% 4px; /* Linhas horizontais sutis */
+    overflow: hidden; /* Para garantir que o scroll é só no terminal */
+}
+
+/* ================================================= */
+/* CONTAINER DO TERMINAL (O DISPOSITIVO DE VISUALIZAÇÃO) */
+/* ================================================= */
+#terminal-container {
+    width: 90%;
+    max-width: 1200px; /* Um pouco mais largo */
+    height: 90vh; 
+    margin: 3vh auto; /* Centraliza vertical e horizontalmente */
+    
+    /* Borda e Sombra Néon Forte */
+    border: 1px solid #00ff00; 
+    box-shadow: 0 0 10px #00ff00, 0 0 5px rgba(0, 255, 0, 0.5) inset;
+    
+    padding: 15px;
+    overflow-y: auto; /* Scroll para o histórico */
+    resize: both; /* Permite ao usuário redimensionar (opcional) */
+}
+
+/* ================================================= */
+/* ELEMENTOS DO TERMINAL */
+/* ================================================= */
+
+/* Cor do Prompt (3I-ATLAS:\>) */
+#prompt {
+    margin-right: 5px;
+    color: #008000; /* Verde mais escuro para diferenciar */
+}
+
+/* Campo de Input */
+#command-input {
+    background: none;
+    border: none;
+    color: #00ff00;
+    width: calc(100% - 150px); 
+    outline: none;
+    /* Cursor com brilho néon */
+    text-shadow: 0 0 5px #00ff00; 
+    caret-color: #00ff00; /* Cor do cursor */
+}
+
+/* Scrollbar com Estilo Alienígena (apenas para navegadores que suportam) */
+#terminal-container::-webkit-scrollbar {
+    width: 8px;
+}
+#terminal-container::-webkit-scrollbar-thumb {
+    background-color: #008000;
+    border-radius: 4px;
+}
+#terminal-container::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+/* ================================================= */
+/* ESTILIZAÇÃO DE MENSAGENS (IMERSÃO) */
+/* ================================================= */
+
+/* Classe para o texto da mensagem alienígena (pós-desbloqueio) */
+.alien-text {
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 0 0 3px #00ff00; /* Brilho sutil */
+    margin: 5px 0;
+}
+
+/* Classe para simular erro de transmissão/corrupção de dados */
+.corrupted-text {
+    color: #ff00ff; /* Cor magenta/rosa para simular falha de transmissão */
+    text-shadow: 0 0 5px #ff00ff; /* Brilho forte */
+    /* Efeito de glitch sutil */
+    animation: glitch-effect 0.2s infinite alternate; 
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+/* Keyframes para a animação do glitch */
+@keyframes glitch-effect {
+    0% { transform: translate(1px, 1px); opacity: 0.9; }
+    50% { transform: translate(-1px, 0px); opacity: 1; }
+    100% { transform: translate(0px, -1px); opacity: 0.95; }
+}
+
+/* Estilo para a linha de input que contém o prompt e o campo */
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+/* ================================================= */
+/* ESTILIZAÇÃO DO MODELO 3D (Holograma/Wireframe) */
+/* ================================================= */
+.profile-view {
+    /* Garante que o container se comporta como esperado */
+    display: block; 
+    overflow: hidden; /* Evita que a sombra de brilho cause scrollbars */
+    padding: 10px 0;
+}
+
+/* Aplica filtros ao visualizador do modelo 3D */
+model-viewer {
+    /* Força o modelo a ser monocromático (preto e verde) */
+    filter: 
+        grayscale(100%)       /* Remove a cor original */
+        sepia(100%)           /* Aplica um tom sépia (amarelado) */
+        hue-rotate(90deg)     /* Roda a cor para o verde (adaptar se precisar de um verde diferente) */
+        saturate(500%);       /* Aumenta a saturação do verde */
+    
+    /* Adiciona um brilho verde néon ao redor do modelo */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3) inset;
+    
+    /* Garante que o fundo do visualizador também seja preto */
+    --model-viewer-background-color: #000000;
+}
+
+/* Estilização da Ficha Técnica */
+.ficha-tecnica {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    border: 1px dashed #00ff00 !important; /* Borda néon forte */
+    padding: 15px !important;
+    font-size: 0.9em;
+}
+
+/* Estilização do Texto */
+.ficha-tecnica h3 {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    border-bottom: 1px solid #008000;
+    padding-bottom: 5px;
+    margin-top: 0;
+}

@@ -42,6 +42,8 @@
                 </div>
                 <div id="interceptor-status" class="interceptor-status"></div>
             </div>
+            <!-- Botão para abrir o Terminal -->
+            <button id="open-terminal-btn" class="terminal-open-button">ABRIR TERMINAL</button>
         </div>
     </div>
 
@@ -74,5 +76,13 @@
         }
     </script>
     <script type="module" src="scene.js"></script>
+
+    <!-- Modal do Terminal -->
+    <div id="terminal-modal-container" class="terminal-modal hidden">
+        <div class="terminal-modal-content">
+            <button id="close-terminal-btn" class="terminal-modal-close" aria-label="Fechar">×</button>
+            <iframe id="terminal-iframe" src="vm-alien/index.html" title="Terminal 3I/Atlas"></iframe>
+        </div>
+    </div>
 </body>
 </html>

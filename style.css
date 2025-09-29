@@ -410,3 +410,75 @@ html, body {
     color: #FFB000;
     min-height: 1.2em;
 }
+
+/* --- Estilos para o Modal do Terminal --- */
+.terminal-open-button {
+    margin: 1em 2em; /* Margem para alinhar com o padding da coluna */
+    align-self: flex-end; /* Alinha o botão à direita */
+    z-index: 1000;
+    background-color: #FFB000;
+    color: #000;
+    border: 1px solid #FFB000;
+    padding: 10px 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 176, 0, 0.7);
+    transition: all 0.2s ease;
+}
+
+.terminal-open-button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 176, 0, 1);
+}
+
+.terminal-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.terminal-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.terminal-modal-content {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    background-color: #000;
+    border: 1px solid rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-modal-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #FFB000;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#terminal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
