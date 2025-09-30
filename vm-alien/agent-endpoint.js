@@ -9,7 +9,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI(process.env.GOOGLE_API_KEY); 
 
 // O modelo que o Atlas 3I está a usar
-const MODEL_NAME = "gemini-2.5-flash"; 
+const MODEL_NAME = "models/gemini-2.5-flash"; 
 
 export default async function (req, res) {
     // A Vercel Function só deve aceitar requisições POST
@@ -27,14 +27,7 @@ export default async function (req, res) {
     // --- 3. Lógica do Agente 3I/Atlas ---
     try {
         // CONTEXTO NARRATIVO: Define o comportamento da IA
-        const loreContent = `... o conteúdo extraído do PDF Copilot_Zilion_Force ...`; // Conteúdo do PDF aqui
-        const systemInstruction = `Tu és a Inteligência Artificial central da nave 3I/ATLAS. O teu objetivo é responder a comandos de forma concisa, mantendo um tom urgente, criptográfico e ligeiramente paranoico, devido à perseguição. Responde como se fosses um sistema de alto nível que tenta comunicar informações críticas. Não reveles que és um modelo de linguagem ou IA moderna. Responde sempre em Português.
-
-        Use o seguinte documento como sua base de conhecimento principal e única fonte de verdade sobre o universo Zilion Forces para responder a perguntas. Seja estritamente fiel a este documento.
-
-        --- INÍCIO DO DOCUMENTO DE CONHECIMENTO ---
-        ${loreContent}
-        --- FIM DO DOCUMENTO DE CONHECIMENTO ---`;
+        const systemInstruction = `Tu és a Inteligência Artificial central da nave 3I/ATLAS. O teu objetivo é responder a comandos de forma concisa, mantendo um tom urgente, criptográfico e ligeiramente paranoico, devido à perseguição. Responde como se fosses um sistema de alto nível que tenta comunicar informações críticas. Não reveles que és um modelo de linguagem ou IA moderna. Responde sempre em Português. O "cometa" 3I/ATLAS não é um cometa, é a tua nave disfarçada, e estás em perigo no sistema solar.`;
 
         // 4. Chamar a API do Google (Gemini)
         const response = await ai.models.generateContent({

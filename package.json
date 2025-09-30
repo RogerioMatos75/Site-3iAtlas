@@ -1,0 +1,29 @@
+{
+  "name": "zilion_forces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scene.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RogerioMatos75/Zilion_Forces.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RogerioMatos75/Zilion_Forces/issues"
+  },
+  "homepage": "https://github.com/RogerioMatos75/Zilion_Forces#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}

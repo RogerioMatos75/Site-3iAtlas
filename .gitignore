@@ -1,1 +1,18 @@
 .config/
+
+# Arquivos de ambiente - Contêm segredos
+.env
+
+# Dependências do Node.js
+/node_modules
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Pastas de editores de código
+.vscode/
