@@ -138,7 +138,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
 
             case 'HELP':
-                printToOutput("COMANDOS DISPONÍVEIS: [PROFILE <classe/personagem>], [LOGOUT]", 'alien-text');
+                printToOutput("COMANDOS DISPONÍVEIS: [ATLAS <pergunta>], [PROFILE <classe/personagem>], [LOGOUT]", 'alien-text');
+                break;
+
+            case 'ATLAS':
+                if (!arg) {
+                    printToOutput("ERRO: Forneça uma consulta para o ATLAS. Ex: ATLAS qual o status da nave?", 'corrupted-text');
+                    break;
+                }
+                try {
+                    printToOutput(">>> Comunicando com o núcleo 3I/ATLAS...", 'alien-text');
+                    const res = await fetch('/vm-alien/agent-endpoint.js', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ query: arg })
+                    });
+                    if (!res.ok) throw new Error('Sinal do ATLAS perdido.');
+                    
+                    const data = await res.json();
+                    
+                    // Usando o typewriter para a resposta da IA
+                    const responseElement = document.createElement('div');
+                    output.appendChild(responseElement);
+                    typewriter(responseElement, `ATLAS: ${data.text}`, (data.status === 'COMMS_OK' ? 'alien-text' : 'corrupted-text'));
+
+                } catch (error) {
+                    printToOutput(`ERRO DE COMUNICAÇÃO: ${error.message}`, 'corrupted-text');
+                }
                 break;
 
             case 'PROFILE':
