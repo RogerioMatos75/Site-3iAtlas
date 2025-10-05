@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         profileDiv.classList.add('profile-view');
         
         const modelViewer = document.createElement('model-viewer');
-        modelViewer.setAttribute('src', data.model);
+        const modelPath = `../payload/characters/${charName}.glb`;
+        modelViewer.setAttribute('src', modelPath);
         modelViewer.setAttribute('alt', `Perfil 3D de ${charName}`);
         modelViewer.setAttribute('auto-rotate', '');
         modelViewer.setAttribute('camera-controls', '');
