@@ -499,19 +499,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const interceptorInput = document.getElementById('interceptor-input');
     const interceptorButton = document.getElementById('interceptor-button');
     const interceptorStatus = document.getElementById('interceptor-status');
+    const wowSignalModal = document.getElementById('wow-signal-modal');
+    const wowSignalVideo = document.getElementById('wow-signal-video');
 
     if (interceptorButton) {
         interceptorButton.addEventListener('click', () => {
-            const url = interceptorInput.value.trim();
-            if (!url) {
-                interceptorStatus.textContent = 'ERRO: URL não pode estar vazia.';
+            const inputValue = interceptorInput.value.trim();
+
+            if (!inputValue) {
+                interceptorStatus.textContent = 'ERRO: Entrada não pode estar vazia.';
                 return;
             }
-            interceptorStatus.textContent = `Sinal pronto para interceptação. Peça ao Gemini para interceptar: ${url}`;
+
+            // Lógica para o Sinal Wow!
+            if (inputValue.toLowerCase() === 'wow') {
+                interceptorStatus.textContent = 'SINAL "WOW!" INTERCEPTADO. ABRINDO CANAL DE VÍDEO...';
+                if (wowSignalModal && wowSignalVideo) {
+                    wowSignalModal.classList.remove('hidden');
+                    wowSignalVideo.play();
+                }
+                interceptorInput.value = ''; // Limpa o input
+            } else {
+                // Lógica original para URLs
+                interceptorStatus.textContent = `Sinal pronto para interceptação: ${inputValue}`;
+            }
         });
     }
 
-    // --- Lógica do Modal do Terminal ---
+    // --- Lógica dos Modais ---
+
+    // Modal do Sinal Wow!
+    const closeWowSignalBtn = document.getElementById('close-wow-signal-btn');
+
+    if (closeWowSignalBtn && wowSignalModal && wowSignalVideo) {
+        const closeWowModal = () => {
+            wowSignalModal.classList.add('hidden');
+            wowSignalVideo.pause();
+            wowSignalVideo.currentTime = 0; // Reinicia o vídeo
+        };
+        closeWowSignalBtn.addEventListener('click', closeWowModal);
+        wowSignalModal.addEventListener('click', (event) => {
+            if (event.target === wowSignalModal) {
+                closeWowModal();
+            }
+        });
+    }
+
+    // Modal do Terminal
     const openTerminalBtn = document.getElementById('open-terminal-btn');
     const closeTerminalBtn = document.getElementById('close-terminal-btn');
     const terminalModal = document.getElementById('terminal-modal-container');

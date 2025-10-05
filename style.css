@@ -482,3 +482,10 @@ html, body {
     height: 100%;
     border: none;
 }
+
+/* Estilo para o vídeo do Sinal Wow! */
+#wow-signal-video {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
