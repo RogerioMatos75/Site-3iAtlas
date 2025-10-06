@@ -2,5 +2,12 @@
   "status": "RASTREAMENTO ATIVO",
   "infection_rate": "0.001%",
   "tracked_comets": 3,
-  "notes": "Dados preliminares. Aguardando mais pacotes do Atlas."
+  "notes": "Agentes notáveis rastreados em arquivos individuais.",
+  "notable_agents": [
+    {
+      "name": "MENTHOR",
+      "threat_level": "Ômega",
+      "dossier_file": "payload/characters/inimigos/menthor.json"
+    }
+  ]
 }

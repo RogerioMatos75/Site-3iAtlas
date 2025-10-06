@@ -1,0 +1,28 @@
+----BEGIN ATLAS PAYLOAD-----
+ATUALIZAÇÃO DE VISUAL: MESA DE OBSERVAÇÃO ATLAS
+Localização: Sala de Observação, Nave 3iAtlas (Acessada remotamente pelo terminal no bracelete ZL-01).
+
+Descrição Visual:
+Uma estrutura branca, minimalista e funcional, com múltiplos projetores holográficos de luz ciano. A interface principal exibe um mapa-múndi 3D em tempo real, com sobreposições de dados vitais:
+
+Pontos Pulsantes: Localização dos fragmentos da 3iAtlas e das Células de Essência.
+
+Vetores de Ameaça: Trajetória do Cometa SWAN e atividade suspeita do Genoma Kryll.
+
+Sinais Ancestrais: Posição e status das Esferas de Buga.
+
+Função Narrativa e Dualidade:
+Isso cria uma dualidade fantástica.
+
+A Visão Corrompida: O que o Alex Renner vê no início, através do seu ZL-01 Mark I "Pip-Boy", é a versão "bugada" e em "Matrix verde" desta mesa. É o sistema operacional do Atlas rodando em "modo de segurança", com dados corrompidos e falhas de renderização.
+
+A Visão Pura: Esta imagem que você mostrou é a forma final e restaurada. À medida que Renner conserta o bracelete e recupera as Células de Protocolo (CPZs), a interface em seu terminal vai se tornando mais limpa, estável e funcional, até atingir este estado de perfeição.
+
+Funções da Mesa:
+
+Mapa Estratégico Global: Rastreia todas as peças do nosso universo em tempo real.
+
+Mesa de Reconstrução: É aqui que os hologramas das peças do bracelete ZL-01 e de outras tecnologias aparecem conforme os QR codes são escaneados.
+
+Navegador do Arquivo Cósmico: É a interface principal para acessar todos os dossiês que estamos criando.
+-----END ATLAS PAYLOAD-----

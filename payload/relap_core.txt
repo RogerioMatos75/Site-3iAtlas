@@ -1,3 +1,12 @@
 ----BEGIN ATLAS PAYLOAD-----
-[DADOS CONFIDENCIAIS - NÚCLEO ANCESTRAL RELAP - AGUARDANDO CARGA]
+Arquivo da Missão: O Guardião Adormecido
+Localização: Zona de Guerra Esquecida. Um cemitério de titãs de um conflito que a história humana não registrou.
+
+Análise da Cena:
+
+O Herói (Pré-Ativação): O Tenente Taser está ali, apenas com sua coragem e seu traje tático inicial. Ele não tem poderes. Ele não tem a armadura completa. Ele foi guiado até este lugar pelo sinal de um fragmento que ele precisa para consertar seu bracelete. Ele está vulnerável.
+
+A Esfera de Buga (O Despertador): O pequeno drone esférico flutuando ao lado do Mech é uma Esfera de Buga. Ela chegou ao local primeiro, atraída pela mesma energia que Taser está seguindo. Ela não está atacando. Está escaneando, analisando, talvez tentando iniciar um protocolo de reativação que leva séculos.
+
+O Mech Ancestral (RELAP): O gigante adormecido. A tecnologia aqui é diferente, mais antiga e brutal que a do próprio Atlas. As marcações "RBE LO", "RELLA" podem ser designações de legiões ou modelos de uma era esquecida. Ele não é um inimigo. É uma arma de último recurso, um guardião deixado para trás.
 -----END ATLAS PAYLOAD-----

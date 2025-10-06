@@ -1,0 +1,24 @@
+----BEGIN ATLAS PAYLOAD-----
+PROTOCOLO DE DEFESA: ESCUDO DE PLASMA TÁTICO (EPT)
+Classificação: Habilidade de Defesa Energética (Requer Tecnologia NanoGrafo)
+
+Descrição:
+Uma manifestação de energia defensiva projetada diretamente da malha NanoGrafo do traje do Tenente Taser, controlada por seu bracelete ZL-01.
+
+Mecanismo de Ativação:
+A postura que você descreveu atua como uma "chave biométrica".
+
+Ao unir os cotovelos e levantar uma perna, o traje NanoGrafo reconhece a "posição de contenção".
+
+O bracelete ZL-01 autoriza uma descarga massiva de energia do seu núcleo.
+
+A malha NanoGrafo nos antebraços do Tenente projeta um campo de plasma superaquecido que se expande, formando um escudo translúcido e vibrante.
+
+Propriedades do Escudo:
+
+Defensivas: É capaz de dissipar a maioria dos ataques de energia e vaporizar projéteis físicos de menor calibre.
+
+Ofensivas: Ao ser "pulsado" para frente, o escudo pode gerar uma onda de choque concussiva, empurrando inimigos para trás.
+
+Limitações: Consome uma quantidade imensa de energia do bracelete. O uso prolongado ou a absorção de um impacto muito forte pode levar a uma sobrecarga, desativando o escudo e talvez outros sistemas do traje temporariamente.
+-----END ATLAS PAYLOAD-----

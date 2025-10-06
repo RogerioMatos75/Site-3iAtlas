@@ -1,0 +1,20 @@
+----BEGIN ATLAS PAYLOAD-----
+DOSSIÊ DE TECNOLOGIA: O ARQUIVO CÓSMICO (Contêiner de Essências)
+Classificação: Unidade de Contenção Biomecânica - Nível Arcanista
+
+Designação Original do Atlas: O Arquivo.
+
+Descrição:
+Este dispositivo é o coração da missão original do Atlas como Arcanista Cósmico. Não é apenas um "depósito", mas uma biblioteca viva. Cada cilindro de contenção visível na imagem armazena e estabiliza uma Célula de Essência — as amostras de DNA, plasma e matéria exótica que o Atlas coletou pela galáxia.
+
+Funcionamento:
+
+Contenção Quântica: A luz ciano que emana do topo é um campo de contenção que mantém as essências em estase, impedindo que degradem ou reajam umas com as outras.
+
+Interface de Análise: A base do dispositivo é uma interface que permitia ao Atlas estudar cada amostra sem precisar abri-la, analisando suas propriedades e potencial.
+
+Protocolo de Segurança: O Arquivo é a peça mais protegida da nave. Em caso de dano catastrófico (como a explosão na atmosfera), o protocolo padrão é ejetar as células individualmente para aumentar a chance de sobrevivência de algumas amostras. É por isso que elas se espalharam pela Terra.
+
+Status Atual (na Saga Zilion Force):
+A estrutura principal d'O Arquivo caiu na Terra junto com um dos maiores destroços da 3iAtlas. A maioria dos cilindros está vazia, pois as Células de Essência foram ejetadas. No entanto, algumas podem ter permanecido intactas dentro dele, tornando este local um dos pontos mais cobiçados e perigosos do planeta.
+-----END ATLAS PAYLOAD-----

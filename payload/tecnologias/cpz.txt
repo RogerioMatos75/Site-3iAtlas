@@ -1,0 +1,22 @@
+----BEGIN ATLAS PAYLOAD-----
+DOSSIÊ TECNOLÓGICO: CÉLULA DE PROTOCOLO ZILION (CPZ)
+Classificação: Agente de Inteligência Artificial Especializado / Chip de Processamento Quântico.
+
+Origem: Unidades de processamento distribuídas da nave 3iAtlas. Cada CPZ é um fragmento de uma das sub-rotinas originais do Atlas (ex: uma era responsável pela navegação, outra pelas armas, outra pela biologia).
+
+Descrição Visual: Um chip tecnológico, como o da imagem, com um núcleo que pulsa em luz azul-ciano. Apresenta circuitos que parecem se reorganizar constantemente, como um cérebro pensando.
+
+Função Principal (O "Upgrade"):
+
+Interface de Fusão: A CPZ é o catalisador que permite a fusão perfeita entre a Matéria Terrestre (Grafeno), a Matéria Alienígena (Nanites da NanoGrafo) e o Material Cósmico (das Células de Essência). Sem uma CPZ, a tecnologia é instável e primitiva. Com ela, o traje se torna uma segunda pele perfeita e os poderes são controlados com precisão.
+
+Execução de Protocolos: Cada chip contém um conjunto de "protocolos" — habilidades ou funções avançadas que podem ser integradas a um traje ou equipamento. Por exemplo:
+
+Uma CPZ com o "Protocolo de Camuflagem" permite que o Super Tomahawk fique invisível.
+
+Uma CPZ com o "Protocolo de Forja" é necessária para a Máquina de Armas funcionar.
+
+Uma CPZ com o "Protocolo de Análise Tática" pode ser integrada ao bracelete do Taser para prever movimentos inimigos.
+
+Expansão da Rede Atlas: Cada vez que uma CPZ é encontrada e ativada por um compatível, uma parte da mente fragmentada do Atlas é restaurada. Encontrar esses chips não só dá upgrade nos heróis, mas literalmente reconstrói a consciência do Atlas.
+-----END ATLAS PAYLOAD-----

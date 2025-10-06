@@ -1,0 +1,25 @@
+----BEGIN ATLAS PAYLOAD-----
+DOSSIÊ DE EQUIPAMENTO: BRACELETE ZL-01 (Mark I)
+Classificação: Protótipo de Interface Neural (Construção Híbrida)
+
+Origem: Uma fusão de tecnologias. O "cérebro" é o fragmento central do Atlas que o Alex Renner encontrou. Mas a "carcaça", a interface, a fonte de energia... é tudo ele.
+
+Construção (A "Gambiarra" de Gênio):
+Usando sua experiência como fuzileiro naval e especialista em elétrica, Renner não consegue ativar o artefato alienígena diretamente. Para isso, ele o integra a uma carcaça que ele mesmo constrói, usando peças de rádio militar antigo, osciloscópios, multímetros e componentes eletrônicos terrestres. O resultado é um "Frankenstein" tecnológico: grande, pesado, mas funcional.
+
+Aparência (Estilo Pip-Boy):
+
+Volumoso e Utilitário: Preso ao braço com cintas de material balístico. Não é elegante, é feito para aguentar o tranco.
+
+Tela Monocromática: A tela inicial é verde ou âmbar, com falhas, estática e dados corrompidos. A comunicação do Atlas, a princípio, é apenas por texto enigmático e gráficos instáveis.
+
+Interface Analógica: Possui botões e seletores físicos, pois Renner ainda não consegue controlar tudo com a mente.
+
+Funcionalidade Inicial (Limitada):
+
+Rastreador de Energia: Sua função primária é atuar como um "contador Geiger" para as emanações dos fragmentos da 3iAtlas e das Esferas de Buga.
+
+Decodificador Básico: Consegue traduzir fragmentos de dados do Atlas em texto ou coordenadas simples no mapa.
+
+Sem Poderes: Nesta fase (Mark I), o bracelete ainda não canaliza energia nem controla a Tecnologia NanoGrafo (que ainda não foi criada). Ele é, essencialmente, um decodificador e rastreador de campo.
+-----END ATLAS PAYLOAD-----

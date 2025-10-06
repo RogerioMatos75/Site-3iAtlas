@@ -1,0 +1,32 @@
+----BEGIN ATLAS PAYLOAD-----
+DOSSIÊ DE VEÍCULO: PROJETO "TOMAHOMEM"
+Designação Original: Helicóptero de ataque [Modelo, ex: AH-64 Apache ou similar], codinome "Tomahawk".
+
+Histórico da Missão Original:
+Após a detecção de anomalias energéticas (o despertar das Esferas de Buga), uma unidade militar de operações secretas foi enviada para interceptar um dos UAPs. O helicóptero "Tomahawk", equipado com sensores avançados, perseguiu uma Esfera de Buga, mas foi desativado em pleno voo por um pulso eletromagnético emitido pela Esfera e abatido. Foi dado como perdido em combate.
+
+Recuperação e Renascimento:
+Guiado pelo Atlas, que rastreou tanto a energia da Esfera quanto os destroços do helicóptero, o Tenente Alex Renner localiza o Tomahawk abandonado. Usando seu conhecimento militar e de elétrica, ele recupera a fuselagem principal e a leva para a base.
+
+A Fusão (A Fórmula Zilion em Ação):
+Na base, o Tomahawk se torna o primeiro grande projeto da Forja Neural.
+
+A Âncora Terrestre: A carcaça do helicóptero.
+
+A Interface Alienígena: Placas de metal recuperadas da nave 3iAtlas são fundidas à estrutura.
+
+A Mágica da NanoGrafo: A Tecnologia NanoGrafo é aplicada sobre toda a superfície, transformando o metal morto em uma "pele" inteligente e auto-reconfigurável.
+
+O "SUPER TOMAHAWK" (Designação Zilion: V-01 "Falcão Sombrio")
+O resultado não é um conserto. É uma ressurreição tecnológica. O Super Tomahawk agora possui:
+
+Camuflagem Adaptativa: A Tecnologia NanoGrafo permite que ele altere sua cor e assinatura de radar, tornando-o praticamente invisível.
+
+Auto-Reparo: Danos na fuselagem são regenerados em tempo real pelos nanites.
+
+Interface Neural: Pode ser pilotado remotamente pelo Tenente Taser através do bracelete ZL-01.
+
+Armamento Híbrido: Seus sistemas de armas são atualizados para disparar projéteis energizados, baseados na tecnologia da Forja.
+
+Integração com o Atlas: O helicóptero se torna um "drone" gigante para o Atlas, um sensor móvel que pode ser enviado para rastrear fragmentos ou escanear atividades Kryll.
+-----END ATLAS PAYLOAD-----

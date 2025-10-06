@@ -1,0 +1,20 @@
+----BEGIN ATLAS PAYLOAD-----
+ATUALIZAÇÃO DE DOSSIÊ: FORJA NEURAL (Unidade de Manufatura Aditiva 3i-F01)
+Função: A "impressora 3D" da nave 3iAtlas. Capaz de construir armas, armaduras e equipamentos a partir de matéria-prima, infundindo-os com tecnologia alienígena e cósmica.
+
+O Processo de "Impressão" (A Fórmula Zilion em Ação):
+A Forja Neural é o dispositivo que executa a nossa "Fórmula Zilion" de forma controlada. O processo funciona em quatro etapas:
+
+Entrada de Matéria Terrestre: O usuário insere matéria-prima terrestre na câmara de fusão (pó de titânio, nióbio, grafeno, etc.). É a "âncora".
+
+Seleção de Protocolo: Uma Célula de Protocolo Zilion (CPZ) — o "chip inteligente" — é inserida na Forja. Ela contém o "blueprint" digital do que será construído.
+
+Infusão de Essência Cósmica: Uma Célula de Essência é acoplada, fornecendo a propriedade elemental da arma (o "poder" de fogo, gelo, gravidade, etc.).
+
+Manufatura NanoGrafo: A Forja usa um feixe de nanites para manipular a matéria-prima em nível atômico, tecendo o objeto com Tecnologia NanoGrafo e infundindo-o com a essência cósmica.
+
+Arco Narrativo:
+A Forja Neural foi uma das seções mais danificadas na queda da 3iAtlas. O próximo grande arco da nossa história pode ser a busca do Tenente Taser pelas peças e CPZs necessárias para consertá-la.
+
+Uma vez que a Forja esteja online, ela se torna o coração industrial da base da Zilion Forces. É nela que os trajes NanoGrafo são fabricados, onde o "Super Tomahawk" foi reconstruído e onde cada herói poderá forjar seu arsenal pessoal.
+-----END ATLAS PAYLOAD-----
