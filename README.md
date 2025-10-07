@@ -44,6 +44,8 @@ Abra seu navegador e acesse o seguinte endereço:
 
 [http://localhost:3000/vm-alien/](http://localhost:3000/vm-alien/)
 
+O link ([(http://localhost:3000/index.html) ](http://localhost:3000/index.html))
+
 ---
 
 ## Comandos do Terminal

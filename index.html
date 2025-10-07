@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="countdown"></div>
     <div class="main-container">
         <div id="terminal-left" class="terminal">
             <pre id="terminal-text-area" class="terminal-text"></pre>
@@ -42,8 +41,10 @@
                 </div>
                 <div id="interceptor-status" class="interceptor-status"></div>
             </div>
-            <!-- Botão para abrir o Terminal -->
-            <button id="open-terminal-btn" class="terminal-open-button">ABRIR TERMINAL</button>
+            <div class="terminal-controls-row">
+                <div id="countdown"></div>
+                <button id="open-terminal-btn" class="terminal-open-button">ABRIR TERMINAL</button>
+            </div>
         </div>
     </div>
 

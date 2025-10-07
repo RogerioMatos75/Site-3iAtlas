@@ -212,11 +212,12 @@ html, body {
 /* Pulse folders (Visible in left column) */
 .hud-pulse-folders {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
     flex-shrink: 0; /* Impede que as pastas encolham */
     flex-grow: 1; /* Faz este container ocupar o espaço restante */
-    justify-content: center; /* Centraliza as pastas verticalmente */
+    justify-content: flex-start;
     align-items: flex-start; /* Impede as pastas de esticarem horizontalmente */
 }
 
@@ -430,6 +431,25 @@ html, body {
 .terminal-open-button:hover {
     background-color: #fff;
     box-shadow: 0 0 15px rgba(255, 176, 0, 1);
+}
+
+/* Controls row aligning countdown beside the terminal button */
+.terminal-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: nowrap;
+    padding: 0 2em 1em;
+}
+.terminal-controls-row #countdown {
+    position: static;
+    margin: 0;
+    white-space: nowrap;
+}
+.terminal-controls-row .terminal-open-button {
+    margin-left: auto;
+    align-self: auto;
 }
 
 .terminal-modal {

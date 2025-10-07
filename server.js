@@ -62,7 +62,10 @@ app.post('/vm-alien/agent-endpoint.js', async (req, res) => {
 app.listen(port, () => {
     console.log(`\n================================================`);
     console.log(`  Servidor Zilion Forces iniciado!`);
-    console.log(`  Acesse o console em: http://localhost:${port}/vm-alien/`);
+    console.log(` `);
+    console.log(`  Acesse o site principal em: http://localhost:${port}/index.html`);
+    console.log(`  Acesse o console alien em: http://localhost:${port}/vm-alien/`);
+    console.log(` `);
     console.log(`================================================`);
     console.log(`\n(Pressione CTRL+C para encerrar o servidor)`);
 });
