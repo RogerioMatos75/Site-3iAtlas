@@ -12,6 +12,14 @@
       "destination": "/hq-viewer/hq.html"
     },
     {
+      "source": "/hq-viewer/(.*)",
+      "destination": "/hq-viewer/$1"
+    },
+    {
+      "source": "/node_modules/(.*)",
+      "destination": "/node_modules/$1"
+    },
+    {
       "source": "/vm-alien/agent-endpoint.js",
       "destination": "/server.js"
     }
