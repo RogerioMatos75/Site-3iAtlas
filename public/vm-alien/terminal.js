@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 try {
                     printToOutput(">>> Comunicando com o núcleo 3I/ATLAS...", 'alien-text');
-                    const res = await fetch('/vm-alien/agent-endpoint.js', {
+                    const res = await fetch('/api/agent', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ query: arg })

@@ -6,13 +6,22 @@ Este projeto é uma aplicação web interativa que simula o terminal de comunica
 
 ---
 
-## Setup e Execução Local
+## Estrutura do Projeto
 
-Para executar o projeto em seu ambiente local, siga os passos abaixo.
+Este projeto é otimizado para a plataforma Vercel e segue uma estrutura de diretórios específica:
+
+- `/public`: Contém todos os assets estáticos do frontend (HTML, CSS, JS, imagens).
+- `/api`: Contém as funções serverless da Vercel. Cada arquivo nesta pasta se torna um endpoint de API.
+
+---
+
+## Setup e Desenvolvimento Local
+
+Para executar o projeto em seu ambiente local, replicando a arquitetura da Vercel, siga os passos abaixo.
 
 **1. Instalar Dependências:**
 
-Certifique-se de ter o Node.js instalado. Em seguida, execute o comando abaixo na raiz do projeto para instalar os pacotes necessários (`express`, `dotenv`, etc.).
+Certifique-se de ter o Node.js instalado. Em seguida, execute o comando abaixo na raiz do projeto para instalar os pacotes necessários.
 
 ```bash
 npm install
@@ -28,21 +37,21 @@ GOOGLE_API_KEY=SUA_CHAVE_SECRETA_AQUI
 
 *Lembre-se: O arquivo `.env` nunca deve ser enviado para o repositório do Git.*
 
-**3. Iniciar o Servidor:**
+**3. Iniciar o Servidor de Desenvolvimento Vercel:**
 
-Use o seguinte comando para iniciar o servidor Node.js:
+Para simular o ambiente da Vercel localmente, usaremos a CLI da Vercel.
 
+Primeiro, instale a CLI globalmente (só precisa fazer isso uma vez):
 ```bash
-node server.js
+npm install -g vercel
 ```
 
-O terminal mostrará uma mensagem confirmando que o servidor está ativo na porta 3000.
+Depois, inicie o servidor de desenvolvimento:
+```bash
+vercel dev
+```
 
-**4. Acessar o Console:**
-
-Abra seu navegador e acesse o seguinte endereço:
-
-[http://localhost:3000/](http://localhost:3000/)
+O terminal mostrará o endereço local para acessar o site (geralmente `http://localhost:3000`). Este comando irá servir os arquivos da pasta `public` e também ativar os endpoints da pasta `api`.
 
 
 ---
