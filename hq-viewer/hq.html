@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zilion Forces - Arquivos Visuais</title>
+    <link rel="stylesheet" href="/hq-viewer/hq.css">
+</head>
+<body>
+    <div id="sidebar">
+        <button id="sidebar-toggle">&lt;</button>
+        <div id="sidebar-content">
+            <h2>Diário de Bordo</h2>
+            <p>Registro 7.34.Z... Fragmentos de memória recuperados. Acessando o primeiro cluster. O Atlas parece estar... guiando. A assinatura de energia é fraca, mas estável. Iniciando a reconstrução da sequência.</p>
+            <!-- A história será carregada aqui -->
+        </div>
+    </div>
+
+    <div id="right-sidebar" class="collapsed">
+        <button id="right-sidebar-toggle">&gt;</button>
+        <div id="right-sidebar-content">
+            <h2>Informações</h2>
+            <p>Detalhes contextuais sobre o painel aparecerão aqui.</p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <button id="sound-toggle-btn" class="muted">🔇</button>
+        <div id="grid-container">
+            <div id="activation-zone">ARRASTE A MEMÓRIA AQUI</div>
+            <!-- Os painéis da HQ serão gerados aqui -->
+        </div>
+
+        <button id="prev-page-btn" class="hidden">Página Anterior</button>
+        <button id="next-page-btn" class="hidden">Próxima Página</button>
+    </div>
+
+    <script src="/node_modules/draggabilly/dist/draggabilly.pkgd.min.js"></script>
+    <script src="/hq-viewer/hq.js"></script>
+</body>
+</html>

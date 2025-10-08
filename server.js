@@ -14,6 +14,12 @@ app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 
 
+// --- Rotas Principais ---
+app.get('/hq', (req, res) => {
+    res.sendFile(path.join(__dirname, 'hq-viewer', 'hq.html'));
+});
+
+
 // --- Lógica da API do ATLAS ---
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 const modelName = "models/gemini-2.5-flash";
@@ -63,7 +69,7 @@ app.listen(port, () => {
     console.log(`\n================================================`);
     console.log(`  Servidor Zilion Forces iniciado!`);
     console.log(` `);
-    console.log(`  Acesse o site principal em: http://localhost:${port}/index.html`);
+    console.log(`  Acesse a HQ Motion Vision em: http://localhost:${port}/hq`);
     console.log(`  Acesse o console alien em: http://localhost:${port}/vm-alien/`);
     console.log(` `);
     console.log(`================================================`);

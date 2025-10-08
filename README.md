@@ -46,6 +46,8 @@ Abra seu navegador e acesse o seguinte endereço:
 
 O link ([(http://localhost:3000/index.html) ](http://localhost:3000/index.html))
 
+URL no seu navegador: `http://localhost:3000`
+
 ---
 
 ## Comandos do Terminal

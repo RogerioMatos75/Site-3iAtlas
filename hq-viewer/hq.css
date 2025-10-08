@@ -1,0 +1,292 @@
+/* hq.css */
+
+:root {
+    --background-color: #0a0a0f;
+    --text-color: #e0e0e0;
+    --primary-neon-color: #00ffcc;
+    --secondary-neon-color: #ff0055;
+    --sidebar-width: 300px;
+    --sidebar-width-collapsed: 50px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    overflow: hidden; /* Evita scroll da página inteira */
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: #111;
+    border-right: 2px solid var(--primary-neon-color);
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+#sidebar.collapsed {
+    transform: translateX(calc(-1 * var(--sidebar-width) + var(--sidebar-width-collapsed)));
+}
+
+#sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px; /* Metade para fora */
+    transform: translateY(-50%);
+    width: 25px;
+    height: 50px;
+    background-color: var(--primary-neon-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%);
+}
+
+#sidebar-content,
+#right-sidebar-content {
+    padding: 20px;
+}
+
+/* --- Sidebar da Direita --- */
+
+#right-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: #111;
+    border-left: 2px solid var(--primary-neon-color);
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+#right-sidebar.collapsed {
+    transform: translateX(calc(var(--sidebar-width) - var(--sidebar-width-collapsed)));
+}
+
+#right-sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    left: -25px; /* Metade para fora */
+    transform: translateY(-50%);
+    width: 25px;
+    height: 50px;
+    background-color: var(--primary-neon-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    clip-path: polygon(100% 0, 0 25%, 0 75%, 100% 100%);
+}
+
+
+/* --- Lógica de Layout do Conteúdo Principal --- */
+
+#main-content {
+    position: relative; /* Adicionado para conter os botões */
+    padding: 20px;
+    transition: margin-left 0.5s ease-in-out, margin-right 0.5s ease-in-out;
+    perspective: 1000px; /* Adiciona perspectiva para o efeito 3D */
+    margin-left: var(--sidebar-width-collapsed);
+    margin-right: var(--sidebar-width-collapsed);
+}
+
+#sidebar:not(.collapsed) ~ #main-content {
+    margin-left: var(--sidebar-width);
+}
+
+#right-sidebar:not(.collapsed) ~ #main-content {
+    margin-right: var(--sidebar-width);
+}
+
+#grid-container {
+    /* Este container agora é um canvas para posicionamento livre */
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 40px); /* Altura total menos o padding */
+}
+
+#activation-zone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 533px;
+    border: 3px dashed var(--primary-neon-color);
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-neon-color);
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 1; /* Fica abaixo dos painéis */
+}
+
+.grid-panel {
+    position: absolute; /* Painéis agora flutuam livremente */
+    width: 350px; /* Largura fixa para os painéis flutuantes */
+    border: 1px solid #444;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: #111;
+    overflow: hidden;
+    cursor: grab; /* Indica que é arrastável */
+    z-index: 10;
+}
+
+.grid-panel:active {
+    cursor: grabbing;
+    transform: scale(1.05); /* Aumenta um pouco ao ser arrastado */
+    box-shadow: 0 0 30px #fff;
+}
+
+.grid-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.75s ease-in-out;
+}
+
+.grid-panel video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out;
+}
+
+.grid-panel.video-active img {
+    opacity: 0;
+}
+
+.grid-panel.video-active video {
+    opacity: 1;
+}
+
+/* --- Estados dos Painéis (Guia Cronológico) --- */
+
+.grid-panel.toview {
+    border: 2px solid var(--primary-neon-color);
+    box-shadow: 0 0 25px var(--primary-neon-color);
+    animation: pulse 2s infinite;
+}
+
+.grid-panel.viewed {
+    border: 1px solid var(--secondary-neon-color);
+    box-shadow: 0 0 15px var(--secondary-neon-color);
+    opacity: 0.7; /* Levemente apagado para indicar que já foi visto */
+}
+
+/* --- Animações --- */
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 15px var(--primary-neon-color);
+    }
+    50% {
+        box-shadow: 0 0 35px var(--primary-neon-color);
+    }
+    100% {
+        box-shadow: 0 0 15px var(--primary-neon-color);
+    }
+}
+
+/* --- Estilos do Texto da Narrativa no Sidebar --- */
+
+#sidebar-content h2 {
+    font-size: 1.5em;
+    color: var(--primary-neon-color);
+    text-align: center;
+}
+
+.sidebar-narration {
+    font-family: 'Georgia', serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.sidebar-dialogue {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 1em;
+    color: #ccc;
+}
+
+.sidebar-sfx {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    font-style: italic;
+    color: var(--secondary-neon-color);
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* --- Botão de Navegação --- */
+
+#next-page-btn, #prev-page-btn {
+    position: absolute;
+    bottom: 30px;
+    padding: 15px 30px;
+    background-color: var(--primary-neon-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2000;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#next-page-btn {
+    right: 30px;
+}
+
+#prev-page-btn {
+    left: 30px;
+}
+
+#next-page-btn.hidden, #prev-page-btn.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede cliques quando invisível */
+    transform: translateY(20px);
+}
+
+/* --- Botão de Som --- */
+
+#sound-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 2001;
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+#sound-toggle-btn.muted {
+    opacity: 0.5;
+}
+
