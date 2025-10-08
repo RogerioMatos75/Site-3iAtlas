@@ -14,11 +14,6 @@ app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 
 
-// --- Rotas Principais ---
-app.get('/hq', (req, res) => {
-    res.sendFile(path.join(__dirname, 'hq-viewer', 'hq.html'));
-});
-
 
 // --- Lógica da API do ATLAS ---
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);

@@ -6,14 +6,14 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/hq",
-      "dest": "/server.js"
+      "source": "/hq",
+      "destination": "/hq-viewer/hq.html"
     },
     {
-      "src": "/vm-alien/agent-endpoint.js",
-      "dest": "/server.js"
+      "source": "/vm-alien/agent-endpoint.js",
+      "destination": "/server.js"
     }
   ]
 }
