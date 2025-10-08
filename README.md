@@ -1,4 +1,4 @@
-# Zilion Forces - Console de Comunicação 3I/ATLAS
+# Zilion Forces - Console de Comunicação 3i/ATLAS
 
 ## Visão Geral
 
@@ -42,11 +42,8 @@ O terminal mostrará uma mensagem confirmando que o servidor está ativo na port
 
 Abra seu navegador e acesse o seguinte endereço:
 
-[http://localhost:3000/vm-alien/](http://localhost:3000/vm-alien/)
+[http://localhost:3000/](http://localhost:3000/)
 
-O link ([(http://localhost:3000/index.html) ](http://localhost:3000/index.html))
-
-URL no seu navegador: `http://localhost:3000`
 
 ---
 
