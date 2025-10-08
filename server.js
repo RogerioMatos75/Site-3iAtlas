@@ -64,8 +64,8 @@ app.listen(port, () => {
     console.log(`\n================================================`);
     console.log(`  Servidor Zilion Forces iniciado!`);
     console.log(` `);
-    console.log(`  Acesse a HQ Motion Vision em: http://localhost:${port}/hq`);
-    console.log(`  Acesse o console alien em: http://localhost:${port}/vm-alien/`);
+
+    console.log(`  Acesse o site em: http://localhost:${port}/`);
     console.log(` `);
     console.log(`================================================`);
     console.log(`\n(Pressione CTRL+C para encerrar o servidor)`);
