@@ -1,5 +1,5 @@
 {
-  "command": "node server.js",
+  "command": "vercel dev",
   "serverUrl": "http://localhost:3000",
   "authenticateProxy": false,
   "commitMode": "commits"

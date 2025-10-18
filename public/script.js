@@ -378,31 +378,79 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileContent = document.getElementById('pulse-file-content');
 
     const folderData = [
-        { id: 'manifesto1', name: 'Manifesto 1', contentPath: 'payload/manifesto_01.txt', access: 'public', locked: false },
-        { id: 'manifesto2', name: 'Manifesto 2', contentPath: 'payload/manifesto_02.txt', access: 'public', locked: false },
-        { id: 'manifesto3', name: 'Manifesto 3', contentPath: 'payload/manifesto_03.txt', access: 'public', locked: false },
-        { id: 'manifesto4', name: 'Manifesto 4', contentPath: 'payload/manifesto_04.txt', access: 'public', locked: false },
-        { id: 'protocolo_arcanista', name: 'Protocolo Arcanista', contentPath: 'payload/protocolo_arcanista.txt', access: 'public', locked: false },
-        { id: 'protocolo_sdk', name: 'Protocolo: Atlas SDK', contentPath: 'payload/protocolo_sdk.txt', access: 'public', locked: false },
-        { id: 'sistema_de_pares', name: 'Protocolo: Sistema de Pares', contentPath: 'payload/sistema_de_pares.txt', access: 'public', locked: false },
-        { id: 'laboratorio_zilion', name: 'Protocolo Futuro: Z-Labs', contentPath: 'payload/laboratorio_zilion.txt', access: 'public', locked: false },
-        { id: 'swan_fragment', name: 'Fragmento SWAN [Panamá]', contentPath: 'payload/swan_fragment.txt', access: 'public', locked: false },
-        { id: 'fragmento_primordial', name: 'Fragmento Primordial [Fukang]', contentPath: 'payload/fragmento_primordial.txt', access: 'public', locked: false },
-        { id: 'buga_sphere', name: 'Esfera de Buga', contentPath: 'payload/buga_sphere.txt', access: 'public', locked: false },
-        { id: 'zl01_intercept', name: 'Interceptação ZL-01', contentPath: 'payload/zl01_intercept.txt', access: 'compatible', locked: false },
-        { id: 'relap_core', name: 'RELAP – Núcleo Ancestral', contentPath: 'payload/relap_core.txt', access: 'locked', locked: false },
-        { id: 'nucleo_central', name: 'Dossiê: Núcleo Central', contentPath: 'payload/nucleo_central.txt', access: 'public', locked: false },
-        { id: 'taser_diary', name: 'Tenente_Taser – Diário de Campo', contentPath: 'payload/taser_diary.txt', access: 'time-released', locked: false },
-        { id: 'kryll_genome', name: 'Genoma Kryll – Expansão', contentPath: 'payload/kryll_genome.json', access: 'real-time', locked: false },
-        { id: 'tomahomem', name: 'Veículo: Tomahomem', contentPath: 'payload/vehicles/tomahomem.txt', access: 'public', locked: false },
-        { id: 'cpz', name: 'Tecnologia: CPZ', contentPath: 'payload/tecnologias/cpz.txt', access: 'public', locked: false },
-        { id: 'arquivo_cosmico', name: 'Tecnologia: Arquivo Cósmico', contentPath: 'payload/tecnologias/arquivo_cosmico.txt', access: 'public', locked: false },
-        { id: 'mesa_observacao', name: 'Tecnologia: Mesa de Observação', contentPath: 'payload/tecnologias/mesa_observacao.txt', access: 'public', locked: false },
-        { id: 'forja_neural', name: 'Tecnologia: Forja Neural', contentPath: 'payload/tecnologias/forja_neural.txt', access: 'public', locked: false },
-        { id: 'nanografo', name: 'Tecnologia: NanoGrafo', contentPath: 'payload/tecnologias/nanografo.txt', access: 'public', locked: false },
-        { id: 'bracelete_zl01', name: 'Equipamento: Bracelete ZL-01', contentPath: 'payload/equipamentos/bracelete_zl01.txt', access: 'public', locked: false },
-        { id: 'escudo_plasma', name: 'Habilidade: Escudo de Plasma', contentPath: 'payload/habilidades/escudo_plasma.txt', access: 'public', locked: false },
-        { id: 'logbook', name: 'Diário de Bordo', contentPath: 'payload/diario_de_bordo.json', access: 'public', locked: false, type: 'log' }
+        {
+            category: 'Manifestos',
+            expanded: false,
+            items: [
+                { id: 'manifesto1', name: 'Manifesto 1', contentPath: 'payload/manifesto_01.txt', access: 'public', locked: false },
+                { id: 'manifesto2', name: 'Manifesto 2', contentPath: 'payload/manifesto_02.txt', access: 'public', locked: false },
+                { id: 'manifesto3', name: 'Manifesto 3', contentPath: 'payload/manifesto_03.txt', access: 'public', locked: false },
+                { id: 'manifesto4', name: 'Manifesto 4', contentPath: 'payload/manifesto_04.txt', access: 'public', locked: false }
+            ]
+        },
+        {
+            category: 'Protocolos',
+            expanded: false,
+            items: [
+                { id: 'protocolo_arcanista', name: 'Protocolo Arcanista', contentPath: 'payload/protocolo_arcanista.txt', access: 'public', locked: false },
+                { id: 'protocolo_sdk', name: 'Protocolo: Atlas SDK', contentPath: 'payload/protocolo_sdk.txt', access: 'public', locked: false },
+                { id: 'sistema_de_pares', name: 'Protocolo: Sistema de Pares', contentPath: 'payload/sistema_de_pares.txt', access: 'public', locked: false },
+                { id: 'laboratorio_zilion', name: 'Protocolo Futuro: Z-Labs', contentPath: 'payload/laboratorio_zilion.txt', access: 'public', locked: false }
+            ]
+        },
+        {
+            category: 'Fragmentos',
+            expanded: false,
+            items: [
+                { id: 'swan_fragment', name: 'Fragmento SWAN [Panamá]', contentPath: 'payload/swan_fragment.txt', access: 'public', locked: false },
+                { id: 'fragmento_primordial', name: 'Fragmento Primordial [Fukang]', contentPath: 'payload/fragmento_primordial.txt', access: 'public', locked: false },
+                { id: 'buga_sphere', name: 'Esfera de Buga', contentPath: 'payload/buga_sphere.txt', access: 'public', locked: false }
+            ]
+        },
+        {
+            category: 'Interceptações',
+            expanded: false,
+            items: [
+                { id: 'zl01_intercept', name: 'Interceptação ZL-01', contentPath: 'payload/zl01_intercept.txt', access: 'compatible', locked: false }
+            ]
+        },
+        {
+            category: 'Núcleos',
+            expanded: false,
+            items: [
+                { id: 'relap_core', name: 'RELAP – Núcleo Ancestral', contentPath: 'payload/relap_core.txt', access: 'locked', locked: false },
+                { id: 'nucleo_central', name: 'Dossiê: Núcleo Central', contentPath: 'payload/nucleo_central.txt', access: 'public', locked: false }
+            ]
+        },
+        {
+            category: 'Registros',
+            expanded: false,
+            items: [
+                { id: 'taser_diary', name: 'Tenente_Taser – Diário de Campo', contentPath: 'payload/taser_diary.txt', access: 'time-released', locked: false },
+                { id: 'kryll_genome', name: 'Genoma Kryll – Expansão', contentPath: 'payload/kryll_genome.json', access: 'real-time', locked: false },
+                { id: 'logbook', name: 'Diário de Bordo', contentPath: 'payload/diario_de_bordo.json', access: 'public', locked: false, type: 'log' }
+            ]
+        },
+        {
+            category: 'Tecnologias',
+            expanded: false,
+            items: [
+                { id: 'cpz', name: 'CPZ', contentPath: 'payload/tecnologias/cpz.txt', access: 'public', locked: false },
+                { id: 'arquivo_cosmico', name: 'Arquivo Cósmico', contentPath: 'payload/tecnologias/arquivo_cosmico.txt', access: 'public', locked: false },
+                { id: 'mesa_observacao', name: 'Mesa de Observação', contentPath: 'payload/tecnologias/mesa_observacao.txt', access: 'public', locked: false },
+                { id: 'forja_neural', name: 'Forja Neural', contentPath: 'payload/tecnologias/forja_neural.txt', access: 'public', locked: false },
+                { id: 'nanografo', name: 'NanoGrafo', contentPath: 'payload/tecnologias/nanografo.txt', access: 'public', locked: false }
+            ]
+        },
+        {
+            category: 'Equipamentos & Habilidades',
+            expanded: false,
+            items: [
+                { id: 'tomahomem', name: 'Veículo: Tomahomem', contentPath: 'payload/vehicles/tomahomem.txt', access: 'public', locked: false },
+                { id: 'bracelete_zl01', name: 'Bracelete ZL-01', contentPath: 'payload/equipamentos/bracelete_zl01.txt', access: 'public', locked: false },
+                { id: 'escudo_plasma', name: 'Escudo de Plasma', contentPath: 'payload/habilidades/escudo_plasma.txt', access: 'public', locked: false }
+            ]
+        }
     ];
 
     function renderFolders() {
@@ -411,23 +459,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
         container.innerHTML = ''; // Limpa pastas existentes
 
-        folderData.forEach(folder => {
-            // Temporariamente exibindo todas as pastas desbloqueadas
-            if (!folder.locked) {
-                const button = document.createElement('button');
-                button.className = 'hud-folder';
-                button.textContent = folder.name;
-                button.setAttribute('data-folder-id', folder.id);
+        folderData.forEach((category, categoryIndex) => {
+            // Container para a categoria
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'hud-folder-category';
 
-                container.appendChild(button);
+            // Botão de expansão da categoria
+            const categoryButton = document.createElement('button');
+            categoryButton.className = 'hud-category-header';
+            categoryButton.setAttribute('data-category-index', categoryIndex);
+            categoryButton.innerHTML = `<span class="hud-category-icon">▶</span> ${category.category}`;
+
+            // Container para os itens (inicialmente oculto)
+            const itemsContainer = document.createElement('div');
+            itemsContainer.className = 'hud-category-items';
+            if (category.expanded) {
+                itemsContainer.classList.add('expanded');
             }
+
+            // Renderizar itens da categoria
+            category.items.forEach(item => {
+                if (!item.locked) {
+                    const button = document.createElement('button');
+                    button.className = 'hud-folder';
+                    button.textContent = item.name;
+                    button.setAttribute('data-folder-id', item.id);
+                    itemsContainer.appendChild(button);
+                }
+            });
+
+            // Adicionar componentes ao DOM
+            categoryDiv.appendChild(categoryButton);
+            categoryDiv.appendChild(itemsContainer);
+            container.appendChild(categoryDiv);
+
+            // Event listener para expansão/colapso
+            categoryButton.addEventListener('click', () => {
+                category.expanded = !category.expanded;
+                itemsContainer.classList.toggle('expanded');
+                categoryButton.querySelector('.hud-category-icon').textContent = category.expanded ? '▼' : '▶';
+            });
         });
     }
 
     renderFolders(); // Chama a função para desenhar as pastas iniciais
 
     function openPulseModal(folderId) {
-        const folder = folderData.find(f => f.id === folderId);
+        let folder = null;
+        for (const category of folderData) {
+            folder = category.items.find(f => f.id === folderId);
+            if (folder) break;
+        }
         if (!folder) return;
 
         // --- Show Modal ---
