@@ -7,6 +7,8 @@ import { FilmPass } from 'three/addons/postprocessing/FilmPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader.js';
 
+const modelTargetSize = 3.75; // Controle o tamanho final do modelo aqui
+
 // Simple vignette shader
 const VignetteShader = {
     uniforms: {
@@ -99,7 +101,7 @@ loader.load(
         model.position.sub(center);
         const size = box.getSize(new THREE.Vector3());
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 5 / maxDim;
+        const scale = modelTargetSize / maxDim;
         model.scale.set(scale, scale, scale);
 
         scene.add(model);

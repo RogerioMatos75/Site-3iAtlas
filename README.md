@@ -107,3 +107,34 @@ Encerra a sessão do operador e bloqueia o terminal novamente.
 ```
 LOGOUT
 ```
+
+
+Coluna Esquerda:
+✅ Header com título e indicador de status pulsante
+✅ Grid de dados (matriz 4x2) com células interativas
+✅ Indicadores de status (SYNC, LOCK, LINK)
+✅ Pastas agrupadas por categoria (mantidas)
+
+Centro (Scene Container):
+✅ 4 cantos decorativos com efeito bevel 3D
+✅ Painel superior com interface tecnológica
+✅ Radar circular animado
+✅ HUD lateral esquerdo com 3 indicadores circulares
+✅ HUD lateral direito com matriz de dados animada
+✅ Painel inferior com espectro de pulso animado
+✅ Padrões geométricos e efeito de profundidade 3D
+
+Coluna Direita:
+✅ Header com medidor de carga visual
+✅ Visualizador de waveform (onda animada)
+✅ Espectro dinâmico (24 barras animadas)
+✅ Conteúdo de display mantido
+✅ 3 Gauges circulares profissionais (FREQ, PWR, AMP)
+✅ Chat ATLAS + Interceptador de Sinais (mantidos)
+
+Efeitos Aplicados:
+🎨 Bordas 3D com gradientes
+🎨 Padrões de scanlines e grids
+🎨 Animações suaves de glow e pulso
+🎨 Perspectiva e profundidade visual
+🎨 Efeitos de múltiplas camadas

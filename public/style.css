@@ -238,7 +238,7 @@ html, body {
 
 .hud-radar-canvas {
     position: absolute;
-    bottom: 1.2em;
+    top: 7em;
     right: 1.2em;
     width: 220px;
     height: 220px;
@@ -318,7 +318,7 @@ html, body {
 /* HUD Alerts */
 .hud-alerts {
     position: absolute;
-    top: 1em;
+    top: 7em;
     left: 1.2em;
     display: flex;
     flex-direction: column;
