@@ -71,7 +71,8 @@ html, body {
     text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
     line-height: 1.5;
     overflow-y: auto;
-    min-height: 0;
+    flex-grow: 1; /* Permite que o elemento cresça */
+    min-height: 100px; /* Garante uma altura mínima para visibilidade */
     background: linear-gradient(180deg, rgba(0, 24, 0, 0.5) 0%, rgba(0, 32, 0, 0.3) 100%);
     padding: 12px;
     border: 1px solid rgba(0, 255, 0, 0.2);
@@ -93,8 +94,8 @@ html, body {
 
 /* Estilo para a coluna da direita (que contém display e chatbot) */
 #right-column {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto auto auto;
     border-left: 2px solid;
     border-image: linear-gradient(180deg, rgba(0, 255, 0, 0.8) 0%, rgba(0, 255, 0, 0.3) 50%, rgba(0, 255, 0, 0.6) 100%) 1;
     background: linear-gradient(180deg, rgba(0, 32, 0, 0.2) 0%, rgba(0, 16, 0, 0.4) 100%);

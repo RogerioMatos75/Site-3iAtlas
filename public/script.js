@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function maybeRestart() {
         if (leftDone && rightDone) {
             setTimeout(() => {
+                if (leftTyped) leftTyped.destroy();
+                if (rightTyped) rightTyped.destroy();
                 const leftEl = document.getElementById('terminal-text-area');
                 const rightEl = document.getElementById('terminal-right-display');
                 if (leftEl) leftEl.innerHTML = '';
