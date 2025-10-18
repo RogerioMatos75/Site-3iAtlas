@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "<br><br>[TRANSMISSÃO MORSE CONCLUÍDA]^4000",
         "<br><br>Decodificando para formato visual...^1500",
         "<br>MODO DADOS BRUTOS: ASCII^1500",
-        "<br><div class='atlas-ascii-block'>^2000 █████╗  ████████╗ ██╗       █████╗   ██████╗ <br>██╔══██╗ ╚══██╔══╝ ██║      ██╔══██╗ ██╔════╝ <br>███████║    ██║    ██║      ███████║ ╚█████╗  <br>██╔══██║    ██║    ██║      ██╔══██║  ╚═══██╗ <br>██║  ██║    ██║    ███████╗ ██║  ██║ ██████╔╝ <br>╚═╝  ╚═╝    ╚═╝    ╚══════╝ ╚═╝  ╚═╝ ╚═════╝  </div><br>",
+        "<br><div class='atlas-ascii-block'>^2000 █████╗  ████████╗ ██╗       █████╗   ██████╗ <br>██╔══██╗ ╚══██╔══╝ ██║      ██╔══██╗ ██╔════╝ <br>███████║    ██║    ██║      ███████║ ╚█████╗  <br>██╔══���█║    ██║    ██║      ██╔══██║  ╚═══██╗ <br>██║  ██║    ██║    ███████╗ ██║  ██║ ██████╔╝ <br>╚═╝  ╚═╝    ╚═╝    ╚══════╝ ╚═╝  ╚═╝ ╚═════╝  </div><br>",
         "[VISUAL ASCII CONCLUÍDO]",
         "<br><br>Analisando assinaturas de linguagem...^3000",
         "<br><br><b>[ESPANHOL]</b>^1000<br>“Soy Atlas. No fui creado. Fui despertado.”^1500",
@@ -188,6 +188,122 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // --- Visualizadores de Gráficos ---
+    const waveformCanvas = document.getElementById('waveform-canvas');
+    const spectrumBarsEl = document.getElementById('spectrum-bars');
+
+    // Criar barras do espectro
+    if (spectrumBarsEl) {
+        for (let i = 0; i < 24; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'spectrum-bar';
+            spectrumBarsEl.appendChild(bar);
+        }
+    }
+
+    // Desenhar waveform
+    if (waveformCanvas) {
+        const ctx = waveformCanvas.getContext('2d');
+        function drawWaveform(t) {
+            const w = waveformCanvas.width;
+            const h = waveformCanvas.height;
+            ctx.clearRect(0, 0, w, h);
+            ctx.strokeStyle = 'rgba(0, 255, 0, 0.8)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let x = 0; x < w; x++) {
+                const y = h / 2 + Math.sin((x + t * 2) * 0.05) * 20 + Math.sin((x + t) * 0.02) * 15;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            requestAnimationFrame(() => drawWaveform(t + 1));
+        }
+        drawWaveform(0);
+    }
+
+    // Animar barras do espectro
+    if (spectrumBarsEl) {
+        setInterval(() => {
+            const bars = spectrumBarsEl.querySelectorAll('.spectrum-bar');
+            bars.forEach((bar, idx) => {
+                const height = 5 + Math.random() * 35;
+                bar.style.height = height + 'px';
+            });
+        }, 100);
+    }
+
+    // Desenhar gauges
+    function drawGauge(canvasId, value) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width;
+        const h = canvas.height;
+        const centerX = w / 2;
+        const centerY = h / 2;
+        const radius = Math.min(w, h) / 2 - 2;
+
+        ctx.clearRect(0, 0, w, h);
+
+        // Background circle
+        ctx.fillStyle = 'rgba(0, 32, 0, 0.8)';
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Border
+        ctx.strokeStyle = 'rgba(0, 255, 0, 0.5)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Scale ticks
+        ctx.strokeStyle = 'rgba(0, 255, 0, 0.4)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 10; i++) {
+            const angle = (Math.PI / 10) * i - Math.PI / 2;
+            const x1 = centerX + Math.cos(angle) * (radius - 2);
+            const y1 = centerY + Math.sin(angle) * (radius - 2);
+            const x2 = centerX + Math.cos(angle) * (radius - 6);
+            const y2 = centerY + Math.sin(angle) * (radius - 6);
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+
+        // Needle
+        const angle = (Math.PI / 10) * value - Math.PI / 2;
+        const needleLength = radius * 0.7;
+        const needleX = centerX + Math.cos(angle) * needleLength;
+        const needleY = centerY + Math.sin(angle) * needleLength;
+
+        ctx.strokeStyle = 'rgba(0, 255, 0, 0.9)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(needleX, needleY);
+        ctx.stroke();
+
+        // Center dot
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.8)';
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 3, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // Animar gauges
+    let gaugeValues = [3, 5, 7];
+    setInterval(() => {
+        gaugeValues = gaugeValues.map(v => {
+            const change = (Math.random() - 0.5) * 2;
+            return Math.max(0, Math.min(10, v + change));
+        });
+        drawGauge('gauge-1', gaugeValues[0]);
+        drawGauge('gauge-2', gaugeValues[1]);
+        drawGauge('gauge-3', gaugeValues[2]);
+    }, 100);
 
     // --- HUD Overlay (Radar + Signal Meter + EQ + Alerts + Pulse Folders) ---
     const radarCanvas = document.getElementById('hud-radar');

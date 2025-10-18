@@ -8,25 +8,153 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles-new-elements.css">
 </head>
 <body>
     <div class="main-container">
         <div id="terminal-left" class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">PULSO 31/ATLAS</span>
+                <span class="terminal-status-light"></span>
+            </div>
+
+            <div class="data-grid-container">
+                <div class="data-grid">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+
             <pre id="terminal-text-area" class="terminal-text"></pre>
+
+            <div class="status-indicators">
+                <div class="status-indicator">
+                    <div class="indicator-dot active"></div>
+                    <span class="indicator-label">SYNC</span>
+                </div>
+                <div class="status-indicator">
+                    <div class="indicator-dot"></div>
+                    <span class="indicator-label">LOCK</span>
+                </div>
+                <div class="status-indicator">
+                    <div class="indicator-dot active"></div>
+                    <span class="indicator-label">LINK</span>
+                </div>
+            </div>
+
             <div id="hud-pulse-folders" class="hud-pulse-folders">
                 <!-- As pastas serão renderizadas dinamicamente aqui pelo script.js -->
             </div>
         </div>
         <div id="scene-container">
             <div id="hud-overlay" class="hud-overlay">
+                <!-- Corner Decorative Elements -->
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner top-right"></div>
+                <div class="hud-corner bottom-left"></div>
+                <div class="hud-corner bottom-right"></div>
+
+                <!-- Top Panel -->
+                <div class="hud-top-panel">
+                    <div class="top-panel-left">
+                        <span class="panel-label">TECHNOLOGY INTERFACE</span>
+                    </div>
+                    <div class="top-panel-right">
+                        <div class="signal-bar-small"></div>
+                        <span class="signal-value">█ █ █ █ █ █</span>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
                 <canvas id="hud-radar" class="hud-radar-canvas"></canvas>
-                <div id="hud-signal" class="hud-signal" aria-hidden="true"></div>
+
+                <!-- Left Side HUD -->
+                <div class="hud-left-side">
+                    <div id="hud-signal" class="hud-signal" aria-hidden="true"></div>
+                    <div class="spacer-h"></div>
+                    <div class="circular-indicators">
+                        <div class="indicator-circle"></div>
+                        <div class="indicator-circle"></div>
+                        <div class="indicator-circle"></div>
+                    </div>
+                </div>
+
+                <!-- Right Side HUD -->
+                <div class="hud-right-side">
+                    <div class="data-matrix">
+                        <div class="matrix-cell"></div>
+                        <div class="matrix-cell"></div>
+                        <div class="matrix-cell"></div>
+                        <div class="matrix-cell"></div>
+                        <div class="matrix-cell"></div>
+                        <div class="matrix-cell"></div>
+                    </div>
+                    <div class="spacer-h"></div>
+                    <div id="hud-eq" class="hud-eq" aria-hidden="true"></div>
+                </div>
+
+                <!-- Bottom Panel -->
+                <div class="hud-bottom-panel">
+                    <div class="spectrum-small">
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                        <div class="spec-bar"></div>
+                    </div>
+                    <div class="spectrum-label">PULSE SIGNAL</div>
+                </div>
+
                 <div id="hud-alerts" class="hud-alerts" aria-live="polite"></div>
-                <div id="hud-eq" class="hud-eq" aria-hidden="true"></div>
             </div>
         </div>
                 <div id="right-column" class="terminal">
-            <div id="terminal-right-display"></div>
+            <div class="right-column-header">
+                <span class="right-title">INTERFACE TECNOLÓGICA</span>
+                <div class="header-meters">
+                    <div class="meter-small">
+                        <div class="meter-bar" style="width: 75%;"></div>
+                    </div>
+                    <span class="meter-value">73%</span>
+                </div>
+            </div>
+
+            <div class="visualizer-container">
+                <div class="waveform-display">
+                    <canvas id="waveform-canvas" width="100%" height="80"></canvas>
+                </div>
+
+                <div class="spectrum-display">
+                    <div id="spectrum-bars" class="spectrum-bars"></div>
+                </div>
+            </div>
+
+            <div id="terminal-right-display" class="terminal-display-content"></div>
+
+            <div class="gauges-row">
+                <div class="gauge-container">
+                    <canvas id="gauge-1" class="gauge-canvas"></canvas>
+                    <span class="gauge-label">FREQ</span>
+                </div>
+                <div class="gauge-container">
+                    <canvas id="gauge-2" class="gauge-canvas"></canvas>
+                    <span class="gauge-label">PWR</span>
+                </div>
+                <div class="gauge-container">
+                    <canvas id="gauge-3" class="gauge-canvas"></canvas>
+                    <span class="gauge-label">AMP</span>
+                </div>
+            </div>
+
             <div id="atlas-chat" class="atlas-chat-panel">
                 <div id="atlas-messages" class="atlas-messages"></div>
                 <div class="atlas-input-row">

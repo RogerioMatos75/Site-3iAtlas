@@ -15,6 +15,9 @@ html, body {
     display: flex;
     width: 100%;
     height: 100%;
+    background: linear-gradient(135deg, #000 0%, #001a00 50%, #000 100%);
+    position: relative;
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9);
 }
 
 /* Estilo base para as colunas de terminal */
@@ -32,13 +35,14 @@ html, body {
 
 /* Estilo específico para o terminal da esquerda */
 #terminal-left {
-    padding: 2em;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 1em;
     background: linear-gradient(180deg, rgba(0, 32, 0, 0.2) 0%, rgba(0, 16, 0, 0.4) 100%);
     border-right: 2px solid rgba(0, 255, 0, 0.3);
     position: relative;
+    overflow-y: auto;
 }
 
 #terminal-left::before {
@@ -197,12 +201,28 @@ html, body {
     border-left: 2px solid;
     border-right: 2px solid;
     border-image: linear-gradient(180deg, rgba(0, 255, 0, 0.8) 0%, rgba(0, 255, 0, 0.3) 50%, rgba(0, 255, 0, 0.6) 100%) 1;
-    box-shadow: inset 0 0 30px rgba(0, 255, 0, 0.3),
+    box-shadow: inset 0 0 40px rgba(0, 255, 0, 0.2),
                 inset 1px 1px 0 rgba(255, 255, 255, 0.05),
                 inset -1px -1px 0 rgba(0, 0, 0, 0.7),
-                0 0 40px rgba(0, 255, 0, 0.4);
+                0 0 50px rgba(0, 255, 0, 0.5);
     position: relative;
     background: linear-gradient(135deg, rgba(0, 16, 0, 0.6) 0%, rgba(0, 24, 0, 0.4) 100%);
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+#scene-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.02) 2px, rgba(0, 255, 0, 0.02) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 255, 0, 0.02) 2px, rgba(0, 255, 0, 0.02) 4px);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* HUD Overlay */
@@ -211,6 +231,9 @@ html, body {
     inset: 0;
     pointer-events: none;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hud-radar-canvas {
