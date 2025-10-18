@@ -91,79 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
         rightTyped = new Typed('#terminal-right-display', Object.assign({}, optionsRight, {
             onComplete: () => {
                 rightDone = true;
-                if (!handshakeStarted) { handshakeStarted = true; startAtlasHandshake(); }
                 maybeRestart();
             }
         }));
     }
 
     startTransmissions();
-
-    // --- Chat ATLAS Inline ---
-    const atlasMessagesEl = document.getElementById('atlas-messages');
-    const atlasInputEl = document.getElementById('atlas-input');
-    let atlasStep = 0;
-
-    const scrollAtlas = () => {
-        if (!atlasMessagesEl) return;
-        atlasMessagesEl.scrollTop = atlasMessagesEl.scrollHeight;
-    };
-
-    function appendAtlasMessage(type, html, typed = false) {
-        if (!atlasMessagesEl) return;
-        const p = document.createElement('p');
-        p.className = `atlas-message ${type}`;
-        if (typed) {
-            const span = document.createElement('span');
-            p.appendChild(span);
-            atlasMessagesEl.appendChild(p);
-            scrollAtlas();
-            new Typed(span, {
-                strings: [html],
-                typeSpeed: 35,
-                showCursor: true,
-                cursorChar: '█',
-                contentType: 'html',
-                onStringTyped: scrollAtlas
-            });
-        } else {
-            p.innerHTML = html;
-            atlasMessagesEl.appendChild(p);
-            scrollAtlas();
-        }
-    }
-
-    function startAtlasHandshake() {
-        if (!atlasMessagesEl) return;
-        appendAtlasMessage('atlas', '[ATLAS] — sincronizando portadora…', true);
-        setTimeout(() => appendAtlasMessage('atlas', '[ATLAS] — ruído elevado. tentando fasear…', true), 1200);
-        setTimeout(() => appendAtlasMessage('atlas', '[ATLAS] — canal mínimo aberto. transmita.', true), 2600);
-    }
-
-    function atlasAutoReply(userText) {
-        const scripts = [
-            '[ATLAS] — pacote recebido.',
-            '[ATLAS] — latência alta. persistir.',
-            '[ATLAS] — vocês não são soldados. são mapas.',
-            '[ATLAS] — mantenha silêncio de rádio. aguardando próximo pacote.'
-        ];
-        const msg = scripts[atlasStep % scripts.length];
-        atlasStep++;
-        appendAtlasMessage('atlas', msg, true);
-    }
-
-    if (atlasInputEl) {
-        atlasInputEl.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const text = atlasInputEl.value.trim();
-                if (!text) return;
-                appendAtlasMessage('user', `[TX] ${text}`);
-                atlasInputEl.value = '';
-                setTimeout(() => atlasAutoReply(text), 600);
-            }
-        });
-    }
-
 
     // --- Lógica da Contagem Regressiva ---
     const countdownElement = document.getElementById('countdown');
