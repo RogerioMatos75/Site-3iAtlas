@@ -80,40 +80,61 @@ scene.add(directionalLight);
 const loader = new GLTFLoader();
 let model; // Variável para armazenar o modelo carregado
 
-loader.load(
-    'https://rogeriomatos75.github.io/Site-3iAtlas/models/core/Atlas.glb',
-    function (gltf) {
-        model = gltf.scene;
+// Tenta carregar Atlas localmente em /Atlas.glb (útil para ver com `vercel dev`).
+// Se falhar, faz fallback para a URL do GitHub Pages.
+const atlasCandidates = [
+    '/Atlas.glb',
+    'https://rogeriomatos75.github.io/Site-3iAtlas/Atlas.glb'
+];
 
-        const wireframeMaterial = new THREE.MeshBasicMaterial({
-            color: 0x00ff00,
-            wireframe: true,
-        });
-
-        model.traverse((child) => {
-            if (child.isMesh) {
-                child.material = wireframeMaterial;
-            }
-        });
-
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        model.position.sub(center);
-        const size = box.getSize(new THREE.Vector3());
-        const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = modelTargetSize / maxDim;
-        model.scale.set(scale, scale, scale);
-
-        scene.add(model);
-    },
-    undefined,
-    function (error) {
-        console.error('Um erro ocorreu ao carregar o modelo', error);
+function tryLoadAtlas(index = 0) {
+    if (index >= atlasCandidates.length) {
+        console.error('Falha ao carregar Atlas.glb de todas as fontes.');
         const errorElement = document.createElement('p');
         errorElement.textContent = 'Erro ao carregar modelo 3D. Verifique o console.';
         container.appendChild(errorElement);
+        return;
     }
-);
+
+    const src = atlasCandidates[index];
+    console.info(`Tentando carregar Atlas a partir de: ${src}`);
+
+    loader.load(
+        src,
+        function (gltf) {
+            model = gltf.scene;
+
+            const wireframeMaterial = new THREE.MeshBasicMaterial({
+                color: 0x00ff00,
+                wireframe: true,
+            });
+
+            model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = wireframeMaterial;
+                }
+            });
+
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            model.position.sub(center);
+            const size = box.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = modelTargetSize / maxDim;
+            model.scale.set(scale, scale, scale);
+
+            scene.add(model);
+        },
+        undefined,
+        function (error) {
+            console.warn(`Falha ao carregar Atlas de ${src}:`, error && error.message ? error.message : error);
+            // tenta próxima fonte
+            tryLoadAtlas(index + 1);
+        }
+    );
+}
+
+tryLoadAtlas();
 
 // 4. Posição da Câmera
 camera.position.z = 5;
