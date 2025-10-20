@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         profileDiv.classList.add('profile-view');
         
         const modelViewer = document.createElement('model-viewer');
-        const modelPath = `../payload/characters/${charName}.glb`;
+        const modelPath = `https://rogeriomatos75.github.io/Site-3iAtlas/${charName}.glb`;
         modelViewer.setAttribute('src', modelPath);
         modelViewer.setAttribute('alt', `Perfil 3D de ${charName}`);
         modelViewer.setAttribute('auto-rotate', '');

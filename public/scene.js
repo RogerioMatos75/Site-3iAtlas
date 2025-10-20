@@ -81,7 +81,7 @@ const loader = new GLTFLoader();
 let model; // Variável para armazenar o modelo carregado
 
 loader.load(
-    'Atlas.glb',
+    'https://rogeriomatos75.github.io/Site-3iAtlas/models/core/Atlas.glb',
     function (gltf) {
         model = gltf.scene;
 
