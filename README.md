@@ -49,6 +49,8 @@ npm install -g vercel
 Depois, inicie o servidor de desenvolvimento:
 ```bash
 vercel dev
+
+npx live-server public
 ```
 
 O terminal mostrará o endereço local para acessar o site (geralmente `http://localhost:3000`). Este comando irá servir os arquivos da pasta `public` e também ativar os endpoints da pasta `api`.

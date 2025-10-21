@@ -83,7 +83,7 @@ let model; // Variável para armazenar o modelo carregado
 // Tenta carregar Atlas localmente em /Atlas.glb (útil para ver com `vercel dev`).
 // Se falhar, faz fallback para a URL do GitHub Pages.
 const atlasCandidates = [
-    '/Atlas.glb',
+    '/docs/Atlas.glb',
     'https://rogeriomatos75.github.io/Site-3iAtlas/Atlas.glb'
 ];
 
