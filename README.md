@@ -52,7 +52,13 @@ Depois, inicie o servidor de desenvolvimento:
 vercel dev
 ```
 
-O terminal mostrará o endereço local para acessar o site (geralmente `http://localhost:3000`). Este comando irá servir os arquivos da pasta `public` e também ativar os endpoints da pasta `api`. Os modelos 3D e outros assets grandes serão carregados diretamente do Firebase Hosting, mesmo em ambiente local.
+ Agora, para que essa mudança seja efetiva, você precisa:
+
+   1. Fazer um novo deploy para o Firebase Hosting:
+
+   1  `firebase deploy --only hosting`
+   2. Após o deploy, reinicie o seu servidor de desenvolvimento Vercel (`vercel dev`).
+   3. O terminal mostrará o endereço local para acessar o site (geralmente `http://localhost:3000`). Este comando irá servir os arquivos da pasta `public` e também ativar os endpoints da pasta `api`. Os modelos 3D e outros assets grandes serão carregados diretamente do Firebase Hosting, mesmo em ambiente local.
 
 
 ---
