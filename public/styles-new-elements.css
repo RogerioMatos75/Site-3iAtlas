@@ -645,6 +645,9 @@
 /* Estilos para o Modal do T-Taser */
 #t-taser-modal .terminal-modal-content {
     max-width: 500px; /* Ajuste conforme necessário */
-    width: 90%;
-    padding: 15px;
+    width: auto; /* Permitir que a largura se ajuste ao conteúdo */
+    height: auto; /* Permitir que a altura se ajuste ao conteúdo */
+    padding: 10px; /* Reduzir o padding */
+    box-sizing: border-box; /* Incluir padding e borda na largura/altura */
 }
+
