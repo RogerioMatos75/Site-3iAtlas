@@ -24,14 +24,17 @@
 
             <div class="data-grid-container">
                 <div class="data-grid">
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
+                    <div class="grid-cell" id="t-taser-card">
+                        <span class="card-title">T-TASER</span>
+                        <span class="card-status">COMPATÍVEL ATIVO</span>
+                    </div>
+                    <div class="grid-cell">NO DATA</div>
+                    <div class="grid-cell">NO DATA</div>
+                    <div class="grid-cell">NO DATA</div>
+                    <div class="grid-cell">NO DATA</div>
+                    <div class="grid-cell">NO DATA</div>
+                    <div class="grid-cell">NO DATA</div>
+                    <div class="grid-cell">NO DATA</div>
                 </div>
             </div>
 
@@ -216,6 +219,14 @@
         <div class="terminal-modal-content">
             <button id="close-terminal-btn" class="terminal-modal-close" aria-label="Fechar">×</button>
             <iframe id="terminal-iframe" src="vm-alien/index.html" title="Terminal 3I/Atlas"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal para o Card do T-Taser -->
+    <div id="t-taser-modal" class="terminal-modal hidden">
+        <div class="terminal-modal-content">
+            <button id="close-t-taser-modal-btn" class="terminal-modal-close" aria-label="Fechar">×</button>
+            <img id="t-taser-card-image" src="https://site-3iatlas-assets.web.app/models/characters/herois/Card-Tenente-Taser.png" alt="Card Tenente Taser" class="modal-card-image">
         </div>
     </div>
 </body>

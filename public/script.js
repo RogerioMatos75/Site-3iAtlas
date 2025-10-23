@@ -662,6 +662,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (inputValue.toLowerCase() === 'wow') {
                 interceptorStatus.textContent = 'SINAL "WOW!" INTERCEPTADO. ABRINDO CANAL DE VÍDEO...';
                 if (wowSignalModal && wowSignalVideo) {
+                    hideAllModals(); // Esconde outros modais antes de abrir este
                     wowSignalModal.classList.remove('hidden');
                     wowSignalVideo.play();
                 }
@@ -699,6 +700,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (openTerminalBtn && terminalModal) {
         openTerminalBtn.addEventListener('click', () => {
+            hideAllModals(); // Esconde outros modais antes de abrir este
             terminalModal.classList.remove('hidden');
         });
     }
@@ -716,6 +718,43 @@ document.addEventListener('DOMContentLoaded', function() {
             // Se for o próprio container do modal (o fundo escuro), fecha.
             if (event.target === terminalModal) {
                 terminalModal.classList.add('hidden');
+            }
+        });
+    }
+
+    // --- Lógica do Modal do T-Taser ---
+    const tTaserCard = document.getElementById('t-taser-card');
+    const tTaserModal = document.getElementById('t-taser-modal');
+    const closeTTaserModalBtn = document.getElementById('close-t-taser-modal-btn');
+
+    // Função para esconder todos os modais
+    function hideAllModals() {
+        const allModals = document.querySelectorAll('.terminal-modal');
+        allModals.forEach(modal => {
+            modal.classList.add('hidden');
+        });
+        // Pausar qualquer vídeo que possa estar tocando
+        if (wowSignalVideo) {
+            wowSignalVideo.pause();
+            wowSignalVideo.currentTime = 0;
+        }
+    }
+
+    if (tTaserCard && tTaserModal && closeTTaserModalBtn) {
+        tTaserCard.addEventListener('click', () => {
+            hideAllModals(); // Esconde outros modais antes de abrir este
+            tTaserModal.classList.remove('hidden');
+        });
+
+        const closeTTaserModal = () => {
+            tTaserModal.classList.add('hidden');
+        };
+
+        closeTTaserModalBtn.addEventListener('click', closeTTaserModal);
+
+        tTaserModal.addEventListener('click', (event) => {
+            if (event.target === tTaserModal) {
+                closeTTaserModal();
             }
         });
     }
