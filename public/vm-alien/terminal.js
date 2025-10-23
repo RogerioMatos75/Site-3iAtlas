@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         profileDiv.classList.add('profile-view');
         
         const modelViewer = document.createElement('model-viewer');
-        const modelPath = `https://rogeriomatos75.github.io/Site-3iAtlas/${charName}.glb`;
+        const modelPath = `https://site-3iatlas-assets.web.app/models/characters/${charName}.glb`;
         modelViewer.setAttribute('src', modelPath);
         modelViewer.setAttribute('alt', `Perfil 3D de ${charName}`);
         modelViewer.setAttribute('auto-rotate', '');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         switch (cmd) {
             case 'KEY':
-                if (arg.toLowerCase() === 'atlas_prime') { // Chave de exemplo
+                if (arg.toLowerCase() === 'ativar sistemas') { // Chave de exemplo
                     is_unlocked = true;
                     promptSpan.textContent = UNLOCKED_PROMPT;
                     printToOutput("CHAVE ACEITA. BEM-VINDO, OPERADOR.", "alien-text");
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 try {
                     printToOutput(`Acessando arquivo encriptado: ${arg}...`, 'alien-text');
-                    const res = await fetch(`../payload/characters/${arg}.json`);
+                    const res = await fetch(`https://site-3iatlas-assets.web.app/payload/characters/${arg}.json`);
                     if (!res.ok) throw new Error('Arquivo não encontrado');
                     const charData = await res.json();
                     showCharacterProfile(arg, charData);

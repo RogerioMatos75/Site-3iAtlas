@@ -73,7 +73,7 @@ Desbloqueia o terminal para permitir o uso de outros comandos.
 
 *Exemplo:*
 ```
-KEY atlas_prime
+KEY Ativar Sistemas
 ```
 
 ### `HELP`
