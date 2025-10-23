@@ -1,3 +1,1 @@
-# Ignora a pasta de modelos usada apenas para desenvolvimento local
-public/models/core/
-public/models/characters/herois
+firebase-assets/

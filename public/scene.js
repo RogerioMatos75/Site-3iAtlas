@@ -83,13 +83,13 @@ let model; // Variável para armazenar o modelo carregado
 // Lógica para carregar o modelo correto dependendo do ambiente (local ou produção)
 let atlasUrl;
 if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
-    // Ambiente de Desenvolvimento Local: Carrega o modelo da pasta 'public/models/core'
-    console.log("Rodando em ambiente local. Carregando modelo local.");
-    atlasUrl = '/models/core/Atlas.glb'; 
+    // Ambiente de Desenvolvimento Local: Carrega o modelo do CDN para consistência
+    console.log("Rodando em ambiente local. Carregando modelo do CDN.");
+    atlasUrl = 'https://site-3iatlas-assets.web.app/models/core/Atlas.glb';
 } else {
-    // Ambiente de Produção (Vercel, GitHub Pages, etc.): Carrega o modelo do CDN
+    // Ambiente de Produção (Vercel, GitHub Pages, etc.): Carrega o modelo do CDN.
     console.log("Rodando em ambiente de produção. Carregando modelo do CDN.");
-    atlasUrl = 'https://rogeriomatos75.github.io/Site-3iAtlas/Atlas.glb';
+    atlasUrl = 'https://site-3iatlas-assets.web.app/models/core/Atlas.glb';
 }
 
 console.info(`Carregando Atlas a partir de: ${atlasUrl}`);

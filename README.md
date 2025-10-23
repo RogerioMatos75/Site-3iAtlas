@@ -8,10 +8,11 @@ Este projeto é uma aplicação web interativa que simula o terminal de comunica
 
 ## Estrutura do Projeto
 
-Este projeto é otimizado para a plataforma Vercel e segue uma estrutura de diretórios específica:
+Este projeto é otimizado para a plataforma Vercel e Firebase Hosting, seguindo uma estrutura de diretórios específica:
 
-- `/public`: Contém todos os assets estáticos do frontend (HTML, CSS, JS, imagens).
+- `/public`: Contém os assets estáticos do frontend que são servidos diretamente pela Vercel (HTML, CSS, JS, imagens menores).
 - `/api`: Contém as funções serverless da Vercel. Cada arquivo nesta pasta se torna um endpoint de API.
+- `/firebase-assets`: Contém assets estáticos maiores (como modelos 3D .glb, .stl, vídeos) que são hospedados e servidos via Firebase Hosting, atuando como uma CDN.
 
 ---
 
@@ -49,11 +50,9 @@ npm install -g vercel
 Depois, inicie o servidor de desenvolvimento:
 ```bash
 vercel dev
-
-npx live-server public
 ```
 
-O terminal mostrará o endereço local para acessar o site (geralmente `http://localhost:3000`). Este comando irá servir os arquivos da pasta `public` e também ativar os endpoints da pasta `api`.
+O terminal mostrará o endereço local para acessar o site (geralmente `http://localhost:3000`). Este comando irá servir os arquivos da pasta `public` e também ativar os endpoints da pasta `api`. Os modelos 3D e outros assets grandes serão carregados diretamente do Firebase Hosting, mesmo em ambiente local.
 
 
 ---
