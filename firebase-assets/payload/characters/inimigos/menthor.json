@@ -1,13 +1,27 @@
 {
-  "ficha": [
-    "Nome: MENTHOR",
-    "Nome Original: Desconhecido",
-    "Classificação: Híbrido Kryll-Humano",
-    "Nível de Ameaça: Ômega",
-    "Evento de Origem: O Incidente do Panamá",
-    "Análise: A infiltração perfeita. Possui as memórias de seu hospedeiro humano, mas com a lealdade e a agenda cósmica dos Krill.",
-    "Função: O Mentor da Invasão Silenciosa, cérebro da colmeia na Terra.",
-    "Poderes: Telepatia Invasiva, Controle Mental em Massa, Aceleração de Transmutação, Projeção de Medo.",
-    "Nêmesis: O anti-Atlas. Enquanto Atlas tenta evoluir a humanidade, Menthor tenta assimilá-la."
-  ]
+  "nome": "MENTHOR",
+  "nome_original": "Desconhecido. Perdido para sempre no processo de transmutação.",
+  "classificacao": "Híbrido Kryll-Humano. Nível de Ameaça: Ômega.",
+  "evento_origem": "O Incidente do Panamá.",
+  "analise_transmutacao": "Diferente de uma simples infecção, o Genoma Kryll não coexistiu com o hospedeiro; ele o substituiu, célula por célula, neurônio por neurônio. O resultado é Menthor: ele possui todas as memórias, a inteligência e a astúcia do humano que um dia foi, mas com a lealdade, os poderes psíquicos e a agenda cósmica dos Krill. Ele é a infiltração perfeita.",
+  "funcao": "O Mentor da Invasão O nome não é por acaso. Ele não é apenas um telepata. Ele é um mentor para a invasão silenciosa na Terra. Sua função é usar seu conhecimento da psique humana para \"ensinar\" os outros fragmentos Kryll a se adaptarem, a encontrarem os hospedeiros ideais e a acelerarem o processo de transmutação global. Ele é o cérebro da colmeia na Terra.",
+  "poderes_habilidades": [
+    {
+      "nome": "Telepatia Invasiva",
+      "descricao": "Lê, corrompe e reescreve memórias."
+    },
+    {
+      "nome": "Controle Mental em Massa",
+      "descricao": "Capaz de influenciar multidões, criando caos e paranoia."
+    },
+    {
+      "nome": "Aceleração de Transmutação",
+      "descricao": "Sua presença psíquica acelera a simbiose de outros humanos com fragmentos Kryll."
+    },
+    {
+      "nome": "Projeção de Medo",
+      "descricao": "Manifesta os piores medos de seus oponentes como ilusões psíquicas tangíveis."
+    }
+  ],
+  "nemesis": "O anti-Atlas. Enquanto Atlas tenta evoluir a humanidade, Menthor tenta assimilá-la."
 }

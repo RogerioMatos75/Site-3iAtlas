@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'Equipamentos & Habilidades',
             expanded: false,
             items: [
-                { id: 'tomahomem', name: 'Veículo: Tomahomem', contentPath: 'payload/vehicles/tomahomem.txt', access: 'public', locked: false },
+                { id: 'tomahawk', name: 'Veículo: Tomahawk', contentPath: 'payload/vehicles/tomahawk.txt', access: 'public', locked: false },
                 { id: 'bracelete_zl01', name: 'Bracelete ZL-01', contentPath: 'payload/equipamentos/bracelete_zl01.txt', access: 'public', locked: false },
                 { id: 'escudo_plasma', name: 'Escudo de Plasma', contentPath: 'payload/habilidades/escudo_plasma.txt', access: 'public', locked: false }
             ]
