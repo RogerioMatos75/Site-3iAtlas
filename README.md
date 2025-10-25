@@ -98,8 +98,9 @@ ATLAS qual o status da camuflagem?
 
 Carrega e exibe a ficha técnica e o modelo 3D de um personagem específico. O caminho é relativo à pasta 
 
-PROFILE herois/tenente_taser
-PROFILE operadores/nanografeno
+   * PROFILE herois/tenente_taser
+   * PROFILE inimigos/menthor
+   * PROFILE operadores/nanografeno
 
 *Exemplo:*
 ```

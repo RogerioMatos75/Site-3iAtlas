@@ -1,0 +1,30 @@
+----BEGIN ATLAS PAYLOAD-----
+DOSSIÊ DE EQUIPAMENTO: VISOR NEURAL INTEGRADO (VNI-01 "Argos")
+Classificação: Interface Visual Tática e de Navegação
+
+Origem: Forjado pessoalmente pelo Tenente Alex Renner na Forja Neural, após a recuperação de uma Célula de Protocolo Zilion (CPZ) específica, contendo o "Protocolo de Análise Visual Avançada".
+
+Componentes Chave:
+
+Estrutura: Carcaça de titânio terrestre para durabilidade.
+
+Tecnologia Interna: Tecido com Tecnologia NanoGrafo para integração total com o traje e o bracelete ZL-01.
+
+O Visor: O visor laranja não é uma tela, é um projetor de campo neural.
+
+Funcionalidades Principais:
+
+Visão Panorâmica 360° (Visão Periférica): O VNI-01 escaneia o ambiente em todas as direções e projeta uma imagem holográfica de 360 graus diretamente na mente do usuário através da interface neural do traje. Para o Taser, é como se ele não tivesse capacete, mas sim olhos em toda a cabeça. Pontos cegos não existem.
+
+Modo de Navegação Espacial: Ao se conectar com o "Super Tomahawk" ou com a futura 3iAtlas restaurada, o visor se transforma em um display de voo completo. Ele exibe telemetria, mapas estelares, cálculos de trajetória, status da nave e dados de viagem em tempo real.
+
+HUD de Combate Atlas: Esta é sua função mais importante. O capacete é a "janela" para a mente do Atlas. Ele sobrepõe dados táticos à visão do Taser:
+
+Trajetórias de ataque inimigas.
+
+Assinaturas de energia do Genoma Kryll.
+
+Pontos fracos estruturais em oponentes.
+
+Direções e coordenadas enviadas diretamente pelo Atlas.
+-----END ATLAS PAYLOAD-----

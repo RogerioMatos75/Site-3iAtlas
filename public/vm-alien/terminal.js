@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modelViewer = document.createElement('model-viewer');
         const modelPath = `https://site-3iatlas-assets.web.app/models/characters/${charName}.glb`;
         modelViewer.setAttribute('src', modelPath);
-        modelViewer.setAttribute('alt', `Perfil 3D de ${charName}`);
+        modelViewer.setAttribute('alt', `Perfil 3D de ${data.nome || charName}`);
         modelViewer.setAttribute('auto-rotate', '');
         modelViewer.setAttribute('camera-controls', '');
         modelViewer.setAttribute('ar', '');
@@ -80,23 +80,59 @@ document.addEventListener('DOMContentLoaded', () => {
         const contentWidth = width - 4;
         let content = '';
 
-        const title = `[ ARQUIVO: ${charName} ]`;
+        const title = `[ ARQUIVO: ${data.nome || charName.split('/').pop().toUpperCase()} ]`;
         const centeredTitle = title.padStart(title.length + Math.floor((width - title.length) / 2)).padEnd(width);
         content += `╔${ '═'.repeat(width) }╗\n`;
         content += `║${ centeredTitle }║\n`;
         content += `╠${ '═'.repeat(width) }╣\n`;
 
-        data.ficha.forEach(line => {
-            const [key, ...valueParts] = line.split(':');
-            const value = valueParts.join(':').trim();
-            const keyLine = ` ${key}:`.padEnd(width);
-            content += `║${keyLine} ║\n`;
-            const wrappedValueLines = wrapText(value, contentWidth);
-            wrappedValueLines.forEach(wrappedLine => {
-                const valueLine = `   ${wrappedLine}`.padEnd(width);
-                content += `║${valueLine} ║\n`;
-            });
-        });
+        for (const key in data) {
+            if (data.hasOwnProperty(key) && key !== 'nome') { // O nome já está no título
+                const value = data[key];
+                const formattedKey = key.replace(/_/g, ' ').toUpperCase();
+                const keyLine = ` ${formattedKey}:`.padEnd(width);
+                content += `║${keyLine} ║\n`;
+
+                if (Array.isArray(value)) {
+                    value.forEach(item => {
+                        if (typeof item === 'object' && item.nome) {
+                            const subKeyLine = `   - ${item.nome}:`.padEnd(width);
+                             content += `║${subKeyLine} ║\n`;
+                             const wrappedValueLines = wrapText(item.descricao, contentWidth - 4);
+                             wrappedValueLines.forEach(wrappedLine => {
+                                 const valueLine = `     ${wrappedLine}`.padEnd(width);
+                                 content += `║${valueLine} ║\n`;
+                             });
+                        } else {
+                            const wrappedValueLines = wrapText(`- ${item}`, contentWidth);
+                            wrappedValueLines.forEach(wrappedLine => {
+                                const valueLine = `   ${wrappedLine}`.padEnd(width);
+                                content += `║${valueLine} ║\n`;
+                            });
+                        }
+                    });
+                } else if (typeof value === 'object' && value !== null) {
+                     for (const subKey in value) {
+                         if (value.hasOwnProperty(subKey)) {
+                             const subValue = value[subKey];
+                             const formattedSubKey = `   - ${subKey.replace(/_/g, ' ').toUpperCase()}:`.padEnd(width);
+                             content += `║${formattedSubKey} ║\n`;
+                             const wrappedValueLines = wrapText(subValue, contentWidth - 4);
+                             wrappedValueLines.forEach(wrappedLine => {
+                                 const valueLine = `     ${wrappedLine}`.padEnd(width);
+                                 content += `║${valueLine} ║\n`;
+                             });
+                         }
+                     }
+                } else {
+                    const wrappedValueLines = wrapText(value, contentWidth);
+                    wrappedValueLines.forEach(wrappedLine => {
+                        const valueLine = `   ${wrappedLine}`.padEnd(width);
+                        content += `║${valueLine} ║\n`;
+                    });
+                }
+            }
+        }
 
         content += `╚${ '═'.repeat(width) }╝`;
 

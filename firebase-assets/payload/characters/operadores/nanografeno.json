@@ -1,14 +1,17 @@
 {
-  "ficha": [
-    "Classe de Poder: Material Simbiótico Quântico - Nível Zilion",
-    "Metal de Forja: Grafeno terrestre fundido com Nanites Atlas",
-    "Elemento Energético: Forja Neural / Interface Simbiótica",
-    "Aparência: Malha hexagonal dinâmica com circuitos ciano, aparência de 'escamas líquidas', com capacidade de alterar forma e cor.",
-    "Personalidade: Não aplicável (Material Inteligente). Descrito pelo Atlas como 'uma segunda pele que pensa'.",
-    "Poderes e Habilidades: Auto-Reparo, Camuflagem Ativa, Interface Neural Direta.",
-    "Equipamentos: O próprio traje NanoGrafo é o equipamento.",
-    "Origem: Criado na Forja Neural pela fusão de grafeno com Nanites Atlas via Célula de Protocolo (CPZ).",
-    "Arco Narrativo: Permite a formação da Rede Neural Zilion, uma consciência coletiva em combate que conecta os portadores.",
-    "Relações: Conecta todos os membros da Zilion Forces em uma rede de inteligência tática subconsciente."
-  ]
+  "nome": "NanoGrafo",
+  "classe_de_poder": "Material Simbiótico Quântico - Nível Zilion",
+  "metal_de_forja": "Grafeno terrestre fundido com Nanites Atlas",
+  "elemento_energetico": "Forja Neural / Interface Simbiótica",
+  "aparencia": "Malha hexagonal dinâmica com circuitos ciano, aparência de 'escamas líquidas', com capacidade de alterar forma e cor.",
+  "personalidade": "Não aplicável (Material Inteligente). Descrito pelo Atlas como 'uma segunda pele que pensa'.",
+  "poderes_e_habilidades": [
+    "Auto-Reparo",
+    "Camuflagem Ativa",
+    "Interface Neural Direta"
+  ],
+  "equipamentos": "O próprio traje NanoGrafo é o equipamento.",
+  "origem": "Criado na Forja Neural pela fusão de grafeno com Nanites Atlas via Célula de Protocolo (CPZ).",
+  "arco_narrativo": "Permite a formação da Rede Neural Zilion, uma consciência coletiva em combate que conecta os portadores.",
+  "relacoes": "Conecta todos os membros da Zilion Forces em uma rede de inteligência tática subconsciente."
 }

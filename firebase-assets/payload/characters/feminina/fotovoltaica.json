@@ -1,11 +1,26 @@
 {
-  "ficha": [
-    "Nome: FOTOVOLTAICA",
-    "Classificação: Unidade de Suporte Energético / Combatente de Médio Alcance",
-    "Origem: Engenheira de energias renováveis que se fundiu a uma Célula de Essência do núcleo de uma estrela.",
-    "Armadura: Traje NanoGrafo com painéis fotovoltaicos super eficientes que absorvem radiação energética.",
-    "Função Principal: Bateria Móvel da equipe, capaz de recarregar os sistemas de outros heróis em campo.",
-    "Poderes Ofensivos: Rajadas de luz concussivas, feixes de calor intenso.",
-    "Habilidades de Suporte: Análise de espectro de energia para detectar fraquezas ou fontes ocultas."
+  "nome": "FOTOVOLTAICA",
+  "classificacao": "Unidade de Suporte Energético / Combatente de Médio Alcance.",
+  "origem": "Uma engenheira de energias renováveis ou astrônoma que, ao estudar anomalias solares, encontrou uma Célula de Essência que o Atlas coletou do núcleo de uma estrela jovem. A fusão a tornou uma \"compatível\" com a habilidade de absorver e manipular energia fotônica.",
+  "armadura": {
+    "nome": "Tecnologia NanoGrafo",
+    "descricao": "Seu traje NanoGrafo é único. Sob comando neural, a malha se reconfigura para criar painéis fotovoltaicos super eficientes, capazes de absorver não apenas luz solar, mas qualquer tipo de radiação energética do ambiente (luz de estrelas, explosões, etc.)."
+  },
+  "habilidades": [
+    {
+      "nome": "Bateria Móvel",
+      "tipo": "Função de Equipe",
+      "descricao": "Sua função primária é ser a fonte de energia da Zilion Forces no campo de batalha. Através de um toque ou de um feixe de energia concentrado, ela pode recarregar os sistemas de outros heróis. Ela é a razão pela qual o Tenente Taser pode usar seu Escudo de Plasma por mais tempo ou o Super Tomahawk pode operar em capacidade máxima."
+    },
+    {
+      "nome": "Poderes Ofensivos",
+      "tipo": "Habilidade",
+      "descricao": "Ela não é apenas suporte. Ela pode descarregar a energia armazenada em rajadas de luz concussivas ou feixes de calor intenso."
+    },
+    {
+      "nome": "Análise de Espectro",
+      "tipo": "Habilidade",
+      "descricao": "Seus sensores podem analisar assinaturas de energia, permitindo-lhe detectar fraquezas em escudos inimigos ou encontrar fontes de energia ocultas."
+    }
   ]
 }

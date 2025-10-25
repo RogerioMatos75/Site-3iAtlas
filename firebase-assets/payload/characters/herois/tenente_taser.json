@@ -1,14 +1,28 @@
 {
-  "ficha": [
-    "Classe de Poder: Tenente – Ponto de ignição da saga Zilion Forces",
-    "Metal de Forja: Tecnologia híbrida alienígena-humana",
-    "Elemento Energético: Comando Neural",
-    "Aparência: Traje montado com peças da nave e sucata terrestre, símbolo de comando neural absoluto no peito",
-    "Personalidade: Determinado, intuitivo, pioneiro, frase marcante: \"Não fui escolhido. Fui o primeiro a escutar.\"",
-    "Poderes e Habilidades: Comando neural direto, sincronização de fragmentos, forja adaptativa, resistência Krill",
-    "Equipamentos: Bracelete ZL-01, Traje de Reconstrução, Mesa Holográfica",
-    "Origem: São Paulo, Brasil – ativado após encontrar bracelete ZL-01 em zona de impacto",
-    "Arco Narrativo: Catalisador da resistência, lidera reconstrução da nave e formação da equipe, desperta fragmentos dormentes com toque direto",
-    "Relações: Mentor de compatíveis, conexão direta com o Atlas, presença ativa em todos os protocolos iniciais"
-  ]
+  "nome": "Tenente Taser",
+  "classe_de_poder": "Tenente – Ponto de ignição da saga Zilion Forces",
+  "metal_de_forja": "Tecnologia híbrida alienígena-humana",
+  "elemento_energetico": "Comando Neural",
+  "aparencia": "Traje montado com peças da nave e sucata terrestre, símbolo de comando neural absoluto no peito",
+  "personalidade": {
+    "tracos": ["Determinado", "intuitivo", "pioneiro"],
+    "frase_marcante": "Não fui escolhido. Fui o primeiro a escutar."
+  },
+  "poderes_e_habilidades": [
+    "Comando neural direto",
+    "Sincronização de fragmentos",
+    "Forja adaptativa",
+    "Resistência Krill"
+  ],
+  "equipamentos": [
+    "Bracelete ZL-01",
+    "Traje de Reconstrução",
+    "Escudo de Plasma"
+  ],
+  "origem": {
+    "local": "São Paulo, Brasil",
+    "evento": "Ativado após encontrar bracelete ZL-01 em zona de impacto"
+  },
+  "arco_narrativo": "Catalisador da resistência, lidera reconstrução da nave e formação da equipe, desperta fragmentos dormentes com toque direto",
+  "relacoes": "Mentor de compatíveis, conexão direta com o Atlas, presença ativa em todos os protocolos iniciais"
 }
